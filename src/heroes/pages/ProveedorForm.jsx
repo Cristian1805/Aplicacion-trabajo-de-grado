@@ -4,6 +4,7 @@ export const ProveedorForm = () => {
   const [proveedor, setProveedor] = useState({
     nombre: '',
     direccion: '',
+    correo:'',
     telefono: '',
   });
   const [mensaje, setMensaje] = useState('');
@@ -43,7 +44,7 @@ export const ProveedorForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="nombre" className="form-label">
-            Nombre del proveedor
+            Nombre completo del proveedor
           </label>
           <input
             type="text"
@@ -72,8 +73,23 @@ export const ProveedorForm = () => {
           />
         </div>
         <div className="mb-3">
+          <label htmlFor="correo" className="form-label">
+            Correo Electronico
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="correo"
+            name="correo"
+            value={proveedor.correo}
+            onChange={handleInputChange}
+            required
+            disabled={isSubmitting}
+          />
+        </div>
+        <div className="mb-3">
           <label htmlFor="telefono" className="form-label">
-            Teléfono del proveedor
+            Teléfono
           </label>
           <input
             type="text"
@@ -93,4 +109,4 @@ export const ProveedorForm = () => {
       {mensaje && <div className={`alert ${mensaje.includes('error') ? 'alert-danger' : 'alert-success'} mt-3`}>{mensaje}</div>}
     </div>
   );
-};
+}; 
