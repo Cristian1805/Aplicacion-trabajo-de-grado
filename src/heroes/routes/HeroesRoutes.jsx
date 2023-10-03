@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Navbar } from '../../ui';
-import { DcPage, HeroPage, MarvelPage, ProductoForm, ProveedorForm, SearchPage} from '../pages';
+import { DcPage, HeroPage, MarvelPage, ProductoForm, ProveedorForm, SearchPage, Reportes} from '../pages';
 // import AgregarProducto from '../pages/AgregarProducto';
 
 export const HeroesRoutes = () => {
@@ -20,6 +20,8 @@ export const HeroesRoutes = () => {
 
 
                 <Route path="proveedores" element={<ProveedorForm/>} />
+
+                <Route path="reportes" element= {<Reportes /> } />
                                 
 
                 <Route path="/" element={<Navigate to="/marvel" />} />
