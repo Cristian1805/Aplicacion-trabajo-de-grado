@@ -3,9 +3,9 @@ export const heroes = [
         'id': 'dc-royalgala',
         'superhero':'Manzana', 
         'publisher':'DC Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Unidades existentes',
         'first_appearance':'Detective Comics #27',
-        'characters':'Bruce Wayne'
+        'caracteristicas':''
     },
 
     {

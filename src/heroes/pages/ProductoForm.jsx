@@ -27,7 +27,7 @@ export const ProductoForm = () => {
       <hr className='w-50 mx-auto mb-4' />
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="nombre" className="form-label">
+          <label htmlFor="nombre" className="form-label"> 
             Nombre del producto
           </label>
           <input
