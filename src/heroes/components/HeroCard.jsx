@@ -54,7 +54,7 @@ export const HeroCard = ({
                     </div>
 
 
-                </div>
+                </div> 
 
             </div>
         </div>

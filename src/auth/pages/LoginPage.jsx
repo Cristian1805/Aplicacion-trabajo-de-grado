@@ -1,7 +1,7 @@
 
 import './LoginPage.css';
 
-export const LoginPage = () => {
+export const LoginPage = () => { 
     return (
         <div className="container login-container">
             <div className="row">
@@ -77,41 +77,3 @@ export const LoginPage = () => {
         </div>
     )
 }
-
-// export const LoginPage = () => {
-
-//   const navigate = useNavigate();
-
-//   const onLogin = () => {
-//     navigate('/', {
-//       replace: true
-//     });
-//   }
-
-//   return (
-//     <div className="container mt-5">
-//       <h2 className='text-center mb-4'>Inicio de sesion</h2>
-//         <Form onSubmit={handleLogin}>
-//           <Form.Group controlId="email">
-//             <Form.Label>Correo Electrónico</Form.Label>
-//               <Form.Control
-//                 type="email"
-//                 placeholder="Ingresa tu correo electrónico"
-//                 value={email}
-//                 onChange={(e) => setEmail(e.target.value)}
-//                 required
-//               />
-//           </Form.Group>
-//         </Form>
-//        <hr />
-
-//       <button 
-//         className="btn btn-primary"
-//         onClick={ onLogin }
-//       >
-//         Login
-//       </button>
-
-//     </div>
-//   )
-// }
