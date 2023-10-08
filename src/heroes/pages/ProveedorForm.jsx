@@ -12,14 +12,30 @@ export const ProveedorForm = () => {
   const [proveedores, setProveedores] = useState([]);
   const [editarProveedor, setEditarProveedor] = useState(null);
 
+
+  useEffect(() => {
+
+    console.log("Actualizando") 
+    
+  }, [proveedores])
+
   useEffect(() => {
     // Aquí puedes realizar una solicitud al servidor para obtener la lista de proveedores existentes.
+        fetch("http://127.0.0.1:5174/proveedores", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }).then((response) => response.json())
+      .then((json) => console.log(setProveedores(json)));
+
     // Por ahora, usaremos datos de ejemplo.
-    const proveedoresEjemplo = [
-      { id: 1, nombre: 'Proveedor 1', direccion: 'Dirección 1', correo: 'proveedor1@example.com', telefono: '1234567890' },
-      { id: 2, nombre: 'Proveedor 2', direccion: 'Dirección 2', correo: 'proveedor2@example.com', telefono: '9876543210' },
-    ];
-    setProveedores(proveedoresEjemplo);
+    // const proveedoresEjemplo = [
+    //   { id: 1, nombre: 'Proveedor 1', direccion: 'Dirección 1', correo: 'proveedor1@example.com', telefono: '1234567890' },
+    //   { id: 2, nombre: 'Proveedor 2', direccion: 'Dirección 2', correo: 'proveedor2@example.com', telefono: '9876543210' },
+    // ];
+    // setProveedores(proveedoresEjemplo);
+    
   }, []);
 
   const handleInputChange = (event) => {
@@ -33,24 +49,41 @@ export const ProveedorForm = () => {
 
     try {
       // Aquí puedes realizar la función para enviar los datos del proveedor al servidor.
-      // Puedes usar una función asincrónica y manejar errores adecuadamente.
+      console.log(JSON.stringify(proveedor));
 
-      // Simulación de espera para demostrar la experiencia de usuario
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const response = await fetch("http://127.0.0.1:5174/proveedores", {
+        method: "POST",
+        body: JSON.stringify(proveedor),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
 
-      if (editarProveedor) {
-        // Si estamos editando, actualiza el proveedor existente en la lista.
-        const proveedoresActualizados = proveedores.map((p) =>
-          p.id === editarProveedor.id ? proveedor : p
-        );
-        setProveedores(proveedoresActualizados);
-        setMensaje('Proveedor actualizado exitosamente');
-        setEditarProveedor(null);
-      } else {
-        // Si no estamos editando, agrega el nuevo proveedor a la lista.
-        setProveedores([...proveedores, { id: Date.now(), ...proveedor }]);
-        setMensaje('Proveedor creado exitosamente');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+      const data = await response.json();
+
+      console.log(data);
+
+      // // Puedes usar una función asincrónica y manejar errores adecuadamente.
+
+      // // Simulación de espera para demostrar la experiencia de usuario
+      // await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // if (editarProveedor) {
+      //   // Si estamos editando, actualiza el proveedor existente en la lista.
+      //   const proveedoresActualizados = proveedores.map((p) =>
+      //     p.id === editarProveedor.id ? proveedor : p
+      //   );
+      //   setProveedores(proveedoresActualizados);
+      //   setMensaje('Proveedor actualizado exitosamente');
+      //   setEditarProveedor(null);
+      // } else {
+      //   // Si no estamos editando, agrega el nuevo proveedor a la lista.
+      //   setProveedores([...proveedores, { _id: Date.now(), ...proveedor }]);
+      //   setMensaje('Proveedor creado exitosamente');
+      // } 
 
       setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
     } catch (error) {
@@ -159,8 +192,8 @@ export const ProveedorForm = () => {
           </tr>
         </thead>
         <tbody>
-          {proveedores.map((p) => (
-            <tr key={p.id}>
+          {proveedores.map((p) => ( 
+            <tr key={p._id}>
               <td>{p.nombre}</td>
               <td>{p.direccion}</td>
               <td>{p.correo}</td>
