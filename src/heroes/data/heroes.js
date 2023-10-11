@@ -63,6 +63,16 @@ export const heroes = [
     },
 
     {
+        'id': 'dc-ciruelaclaudia',
+        'superhero':'Ciruela Claudia', 
+        'publisher':'DC Comics', 
+        'alter_ego':'Bruce Wayne',
+        'first_appearance':'Detective Comics #27', 
+        'characters':'Bruce Wayne'
+    },
+
+
+    {
         'id': 'marvel-banano',
         'superhero':'Banano', 
         'publisher':'Marvel Comics', 
@@ -124,7 +134,4 @@ export const heroes = [
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },
-    
-    
-    
 ]

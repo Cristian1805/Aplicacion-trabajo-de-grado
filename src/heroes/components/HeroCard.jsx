@@ -33,20 +33,21 @@ export const HeroCard = ({
 
                     <div className="col-8">
 
-                        <div className="card-body">
+                        <div className="card-body"> 
 
                             <h5 className="card-title">{ superhero }</h5>
                             <p className="card-text">{ alter_ego }</p>
 
                             <CharactersByHero caracteristicas={ caracteristicas } alter_ego={ alter_ego } />
 
-                            <p className="card-text">
+                            {/* <p className="card-text">
                                 <small className="text-muted">{ first_appearance }</small>
-                            </p>
+                            </p> */}
 
-                            <Link to={`/hero/${ id }`}>
-                                Más..
-                            </Link>
+                            <Link to={`/hero/${ id }`} className="btn btn-outline-success">
+                                Ingresar 
+                            </Link> 
+
 
                             
                         </div>

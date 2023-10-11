@@ -69,7 +69,7 @@ export const LoginPage = () => {
                             <input 
                                 type="submit" 
                                 className="btnSubmit" 
-                                value="Crear cuenta" />
+                                value="Crear cuenta" /> 
                         </div>
                     </form>
                 </div>
@@ -77,3 +77,4 @@ export const LoginPage = () => {
         </div>
     )
 }
+

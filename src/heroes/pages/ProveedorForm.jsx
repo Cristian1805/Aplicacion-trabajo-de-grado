@@ -11,87 +11,78 @@ export const ProveedorForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [proveedores, setProveedores] = useState([]);
   const [editarProveedor, setEditarProveedor] = useState(null);
+  const [updater, setUpdater] = useState(0)
 
-
-  useEffect(() => {
-
-    console.log("Actualizando") 
-    
-  }, [proveedores])
+  const [confirmarEliminar, setConfirmarEliminar] = useState(false);
+  const [proveedorAEliminar, setProveedorAEliminar] = useState(null); 
 
   useEffect(() => {
-    // Aquí puedes realizar una solicitud al servidor para obtener la lista de proveedores existentes.
-        fetch("http://127.0.0.1:5174/proveedores", {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      }).then((response) => response.json())
-      .then((json) => console.log(setProveedores(json)));
-
+    fetch("http://127.0.0.1:5174/proveedores", { 
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    }).then((response) => response.json())
+    .then((json) => {
+      setProveedores(json)
+      console.log(proveedores)      
+    })
     // Por ahora, usaremos datos de ejemplo.
-    // const proveedoresEjemplo = [
-    //   { id: 1, nombre: 'Proveedor 1', direccion: 'Dirección 1', correo: 'proveedor1@example.com', telefono: '1234567890' },
-    //   { id: 2, nombre: 'Proveedor 2', direccion: 'Dirección 2', correo: 'proveedor2@example.com', telefono: '9876543210' },
-    // ];
-    // setProveedores(proveedoresEjemplo);
-    
-  }, []);
+    const proveedoresEjemplo = [
+      { id: 1, nombre: 'Proveedor 1', direccion: 'Dirección 1', correo: 'proveedor1@example.com', telefono: '1234567890' },
+      { id: 2, nombre: 'Proveedor 2', direccion: 'Dirección 2', correo: 'proveedor2@example.com', telefono: '9876543210' },
+      { id: 1, nombre: 'Proveedor 1', direccion: 'Dirección 1', correo: 'proveedor1@example.com', telefono: '1234567890' },
+      { id: 2, nombre: 'Proveedor 2', direccion: 'Dirección 2', correo: 'proveedor2@example.com', telefono: '9876543210' },
+    ];
+    setProveedores(proveedoresEjemplo);   
+  }, [updater])
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setProveedor({ ...proveedor, [name]: value });
   };
 
+  const crearProovedor = async () => {
+    await fetch("http://127.0.0.1:5174/proveedores", {
+      method: "POST",
+      body: JSON.stringify(proveedor),
+      headers: { "Content-type": "application/json; charset=UTF-8" }
+    }).then((response) => response.json())
+    .then((json) => {
+      console.log(json)
+      setUpdater(updater+1)
+      setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
+    })    
+  }
+
+  const actualizarProovedor = async () => {
+    await fetch("http://127.0.0.1:5174/proveedores/"+editarProveedor._id, {
+      method: "PUT",
+      body: JSON.stringify(proveedor),
+      headers: { "Content-type": "application/json; charset=UTF-8" }
+    }).then((response) => response.json())
+    .then((json) => {
+      console.log(json)
+      setUpdater(updater+1)
+      setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
+      setEditarProveedor(null)
+    })    
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsSubmitting(true);
-
+    setIsSubmitting(true);    
     try {
-      // Aquí puedes realizar la función para enviar los datos del proveedor al servidor.
-      console.log(JSON.stringify(proveedor));
-
-      const response = await fetch("http://127.0.0.1:5174/proveedores", {
-        method: "POST",
-        body: JSON.stringify(proveedor),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      if(editarProveedor){
+        actualizarProovedor()
+      } else {
+        crearProovedor()
       }
-      const data = await response.json();
-
-      console.log(data);
-
-      // // Puedes usar una función asincrónica y manejar errores adecuadamente.
-
-      // // Simulación de espera para demostrar la experiencia de usuario
-      // await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // if (editarProveedor) {
-      //   // Si estamos editando, actualiza el proveedor existente en la lista.
-      //   const proveedoresActualizados = proveedores.map((p) =>
-      //     p.id === editarProveedor.id ? proveedor : p
-      //   );
-      //   setProveedores(proveedoresActualizados);
-      //   setMensaje('Proveedor actualizado exitosamente');
-      //   setEditarProveedor(null);
-      // } else {
-      //   // Si no estamos editando, agrega el nuevo proveedor a la lista.
-      //   setProveedores([...proveedores, { _id: Date.now(), ...proveedor }]);
-      //   setMensaje('Proveedor creado exitosamente');
-      // } 
-
-      setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
-    } catch (error) {
-      // Manejo de errores en caso de fallo al enviar los datos
+    } catch (error) {      
       console.error('Error al enviar datos:', error);
       setMensaje('Hubo un error al crear o actualizar el proveedor. Inténtalo de nuevo.');
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false); 
     }
   };
 
@@ -100,10 +91,33 @@ export const ProveedorForm = () => {
     setEditarProveedor(proveedor);
   };
 
+
+
   const handleEliminarProveedor = (id) => {
-    const proveedoresFiltrados = proveedores.filter((p) => p.id !== id);
-    setProveedores(proveedoresFiltrados);
-    setMensaje('Proveedor eliminado exitosamente');
+    //Confirmacion para eliminar el proveedor
+    setProveedorAEliminar(id);
+    setConfirmarEliminar(true);
+  };
+
+  const confirmarEliminacion = () => {
+    // Si el usuario confirma la eliminación, se procede a eliminar el proveedor.
+    if(proveedorAEliminar){
+      fetch("http://127.0.0.1:5174/proveedores/"+id, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+      .then((response) => response.json())
+      .then((json) => {
+        setUpdater(updater+1)
+        setMensaje('Proveedor eliminado exitosamente');
+      })
+      
+      //Despues de eliminar, se limpia el estado del formulario
+      setProveedorAEliminar(null);
+      setConfirmarEliminar(false);
+    }
   };
 
   return (
@@ -202,14 +216,56 @@ export const ProveedorForm = () => {
                 <button className="btn btn-warning btn-sm" onClick={() => handleEditarProveedor(p)}>
                   Editar
                 </button>
-                <button className="btn btn-danger btn-sm ml-2" onClick={() => handleEliminarProveedor(p.id)}>
+                <button className="btn btn-danger btn-sm ml-2" onClick={() => handleEliminarProveedor(p._id)}>
                   Eliminar
                 </button>
               </td>
-            </tr>
+            </tr> 
           ))}
         </tbody>
       </table>
     </div>
+
   );
 };
+
+
+// {confirmarEliminar && (
+//   <div className="modal" style={{ display: 'block' }}>
+//     <div className="modal-dialog">
+//       <div className="modal-content">
+//         <div className="modal-header">
+//           <h5 className="modal-title">Confirmar Eliminación</h5>
+//           <button
+//             type="button"
+//             className="close"
+//             data-dismiss="modal"
+//             onClick={cancelarEliminacion}
+//           >
+//             <span>&times;</span>
+//           </button>
+//         </div>
+//         <div className="modal-body">
+//           ¿Estás seguro de que deseas eliminar este proveedor?
+//         </div>
+//         <div className="modal-footer">
+//           <button
+//             type="button"
+//             className="btn btn-danger"
+//             onClick={confirmarEliminacion}
+//           >
+//             Sí, eliminar
+//           </button>
+//           <button
+//             type="button"
+//             className="btn btn-secondary"
+//             data-dismiss="modal"
+//             onClick={cancelarEliminacion}
+//           >
+//             Cancelar
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// )}
