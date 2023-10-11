@@ -21,12 +21,13 @@ export const HeroesRoutes = () => {
 
                 <Route path="proveedores" element={<ProveedorForm/>} />
 
+
+                <Route path="salida-frm" element={<InventarioSalida/>} />
+
                 <Route path="reportes" element= {<Reportes /> } />
                                 
 
                 <Route path="/" element={<Navigate to="/marvel" />} />
-
-                <Route path='/salida-frm' element={<InventarioSalida/>}/>
 
             </Routes>
         </div>

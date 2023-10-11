@@ -4,4 +4,5 @@ export * from './MarvelPage';
 export * from './SearchPage';
 export * from './ProveedorForm';
 export * from './ProductoForm';
-export * from './Reportes';  
+export * from './Reportes';
+export * from './InventarioSalida';

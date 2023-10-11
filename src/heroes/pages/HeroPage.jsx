@@ -38,15 +38,14 @@ export const HeroPage = () => {
         <h5 className="mt-3"> Characters </h5>
         <p>{hero.characters}</p>
 
-        <button
-          className="btn btn-outline-primary"
-          onClick={onNavigateBack}
-        >
-          Regresar
-        </button>
-        
-        {/* Agregar un botón para ir al formulario de salida */}
-        <div className='button-container'>
+        <div className="button-container">
+          <button
+            className="btn btn-outline-primary"
+            onClick={onNavigateBack}
+          >
+            Regresar
+          </button>
+          
           <Link to="/salida-frm" className="btn btn-outline-success">
             Ir al Formulario de Salida
           </Link>

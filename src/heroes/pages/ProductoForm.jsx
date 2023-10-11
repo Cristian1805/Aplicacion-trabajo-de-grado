@@ -23,7 +23,7 @@ export const ProductoForm = () => {
 
   return (
     <div className="container">
-      <h1 className='display-4 text-center mt-5'> REGISTRAR PRODUCTO</h1>
+      <h1 className='display-4 text-center mt-5'> ENTRADA PRODUCTO</h1>
       <hr className='w-50 mx-auto mb-4' />
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
