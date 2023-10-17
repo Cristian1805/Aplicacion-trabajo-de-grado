@@ -3,7 +3,7 @@ export const heroes = [
         'id': 'dc-royalgala',
         'superhero':'Manzana', 
         'publisher':'DC Comics', 
-        'alter_ego':'Unidades existentes',
+        'alter_ego':'Manzana Royal',
         'first_appearance':'Detective Comics #27',
         'caracteristicas':''
     },
@@ -12,7 +12,7 @@ export const heroes = [
         'id': 'dc-arandanos',
         'superhero':'Arándanos', 
         'publisher':'DC Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Fruto carnoso',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },
@@ -21,7 +21,7 @@ export const heroes = [
         'id': 'dc-uvachilena',
         'superhero':'Uva Chilena', 
         'publisher':'DC Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Vitis Vinifera',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },
@@ -30,7 +30,7 @@ export const heroes = [
         'id': 'dc-durazno',
         'superhero':'Durazno', 
         'publisher':'DC Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Durazno',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },
@@ -39,7 +39,7 @@ export const heroes = [
         'id': 'dc-kiwi',
         'superhero':'Kiwi', 
         'publisher':'DC Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Kiwi',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },
@@ -48,7 +48,7 @@ export const heroes = [
         'id': 'dc-pera',
         'superhero':'Pera', 
         'publisher':'DC Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Pera',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },
@@ -57,7 +57,7 @@ export const heroes = [
         'id': 'dc-manzanaroja',
         'superhero':'Manzana Roja', 
         'publisher':'DC Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Manzana Roja',
         'first_appearance':'Detective Comics #27', 
         'characters':'Bruce Wayne'
     },
@@ -66,7 +66,7 @@ export const heroes = [
         'id': 'dc-ciruelaclaudia',
         'superhero':'Ciruela Claudia', 
         'publisher':'DC Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Ciruela',
         'first_appearance':'Detective Comics #27', 
         'characters':'Bruce Wayne'
     },
@@ -76,7 +76,7 @@ export const heroes = [
         'id': 'marvel-banano',
         'superhero':'Banano', 
         'publisher':'Marvel Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Banano',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne' 
     },
@@ -85,7 +85,7 @@ export const heroes = [
         'id': 'marvel-papaya',
         'superhero':'Papaya', 
         'publisher':'Marvel Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Papaya',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },
@@ -94,7 +94,7 @@ export const heroes = [
         'id': 'marvel-granadilla',
         'superhero':'Granadilla', 
         'publisher':'Marvel Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Granadilla',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },
@@ -103,7 +103,7 @@ export const heroes = [
         'id': 'marvel-isabella',
         'superhero':'Uva Isabella', 
         'publisher':'Marvel Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Uva Isabella',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },
@@ -112,7 +112,7 @@ export const heroes = [
         'id': 'marvel-mango',
         'superhero':'Mango', 
         'publisher':'Marvel Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Mango',
         'first_appearance':'Detective Comics #27', 
         'characters':'Bruce Wayne'
     },
@@ -121,7 +121,7 @@ export const heroes = [
         'id': 'marvel-melon',
         'superhero':'Melón', 
         'publisher':'Marvel Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Melon',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },
@@ -130,7 +130,7 @@ export const heroes = [
         'id': 'marvel-piña',
         'superhero':'Piña', 
         'publisher':'Marvel Comics', 
-        'alter_ego':'Bruce Wayne',
+        'alter_ego':'Piña',
         'first_appearance':'Detective Comics #27',
         'characters':'Bruce Wayne'
     },

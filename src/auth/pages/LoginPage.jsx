@@ -1,80 +1,53 @@
+// import React from 'react';
 
-import './LoginPage.css';
+// const LoginPage = () => {
+//   return (
+//     <div className="container h-100">
+//       <div className="row h-100 justify-content-center align-items-center">
+//         {/* Columna para el logo de la empresa */}
+//         <div className="col-md-6 text-center">
+//           <img
+//             src="/assets/logo.jpg"
+//             alt="Logo de la Empresa"
+//             className="img-fluid mb-4"
+//           />
+//           <h3 className="display-6">Bienvenido al inventario</h3>
+//         </div>
+//         {/* Columna para el formulario de inicio de sesión */}
+//         <div className="col-md-6">
+//           <div className="mt-3 text-center">
+//           <h3 className="display-6">Formulario Inicio de sesión</h3>
+//           <hr className="w-50 mx-auto mb-4" />
+//           </div>
+//           <form>
+//             <div className="form-group">
+//               <label htmlFor="usuario">Usuario:</label>
+//               <input 
+//                 type="text"
+//                 className="form-control"
+//                 id="usuario"
+//                 placeholder="Nombre de usuario"
+//               />
+//             </div>
+//             <div className="form-group mb-3">
+//             <label htmlFor="contrasena">Contraseña:</label> 
+//             <input
+//                 type="password"
+//                 className="form-control"
+//                 id="contrasena"
+//                 placeholder="Contraseña"
+//             />
+//             </div>
+//             <div className="form-group">
+//             <button type="submit" className="btn btn-primary btn-block">
+//                 Iniciar Sesión
+//             </button>
+//             </div>
+//           </form>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
-export const LoginPage = () => { 
-    return (
-        <div className="container login-container">
-            <div className="row">
-                <div className="col-md-6 login-form-1">
-                    <h3>Ingreso</h3>
-                    <form>
-                        <div className="form-group mb-2">
-                            <input 
-                                type="text"
-                                className="form-control"
-                                placeholder="Correo"
-                            />
-                        </div>
-                        <div className="form-group mb-2">
-                            <input
-                                type="password"
-                                className="form-control"
-                                placeholder="Contraseña"
-                            />
-                        </div>
-                        <div className="d-grid gap-2">
-                            <input 
-                                type="submit"
-                                className="btnSubmit"
-                                value="Login" 
-                            />
-                        </div>
-                    </form>
-                </div>
-
-                <div className="col-md-6 login-form-2">
-                    <h3>Registro</h3>
-                    <form>
-                        <div className="form-group mb-2">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Nombre"
-                            />
-                        </div>
-                        <div className="form-group mb-2">
-                            <input
-                                type="email"
-                                className="form-control"
-                                placeholder="Correo"
-                            />
-                        </div>
-                        <div className="form-group mb-2">
-                            <input
-                                type="password"
-                                className="form-control"
-                                placeholder="Contraseña" 
-                            />
-                        </div>
-
-                        <div className="form-group mb-2">
-                            <input
-                                type="password"
-                                className="form-control"
-                                placeholder="Repita la contraseña" 
-                            />
-                        </div>
-
-                        <div className="d-grid gap-2">
-                            <input 
-                                type="submit" 
-                                className="btnSubmit" 
-                                value="Crear cuenta" /> 
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    )
-}
-
+// export default LoginPage;

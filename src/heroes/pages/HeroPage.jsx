@@ -30,13 +30,14 @@ export const HeroPage = () => {
       <div className="col-md-8">
         <h3>{hero.superhero}</h3>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item"> <b>Alter ego:</b> {hero.alter_ego} </li>
+          <li className="list-group-item"> <b>Tipo de fruta:</b> {hero.alter_ego} </li>
           <li className="list-group-item"> <b>Publisher:</b> {hero.publisher} </li>
           <li className="list-group-item"> <b>First appearance:</b> {hero.first_appearance} </li>
         </ul>
 
-        <h5 className="mt-3"> Characters </h5>
-        <p>{hero.characters}</p>
+
+      <h1 className="display-4 text-center mt-5">OPCIONES</h1>
+      <hr className="w-50 mx-auto mb-4" />
 
         <div className="button-container">
           <button
