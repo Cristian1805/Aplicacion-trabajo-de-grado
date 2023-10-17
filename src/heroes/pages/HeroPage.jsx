@@ -21,7 +21,7 @@ export const HeroPage = () => {
     <div className="row mt-5 animate__animated animate__fadeInLeft">
       <div className="col-md-4">
         <img
-          src={`/assets/heroes/${id}.jpg`}
+          src={`/assets/frutas/${id}.jpg`} 
           alt={hero.superhero}
           className="img-fluid"
         />

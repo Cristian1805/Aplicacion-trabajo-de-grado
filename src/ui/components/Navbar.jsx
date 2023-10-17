@@ -10,10 +10,12 @@ export const Navbar = () => {
     }
 
     return (
-        <nav className="navbar navbar-expand-md navbar-dark bg-dark p-2">
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark p-1">
             <Link
+            
                 className="navbar-brand"
                 to="/"
+                img src="/assets/heroes/casa.png" alt="Logo de la casa"
             >
                 MENU PRINCIPAL
             </Link>
@@ -31,14 +33,14 @@ export const Navbar = () => {
                 <div className="navbar-nav">
                     <NavLink
                         className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/marvel"
+                        to="/tropicales" 
                     >
                         TROPICALES
                     </NavLink>
 
                     <NavLink
                         className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/dc"
+                        to="/importadas" 
                     >
                         IMPORTADAS
                     </NavLink>

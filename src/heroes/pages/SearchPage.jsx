@@ -34,7 +34,7 @@ export const SearchPage = () => {
   return (
     <>
       <h1 className='display-4 text-center mt-5' >Buscar</h1>
-      <hr className='w-50 mx-auto mb-3' />
+      <hr className='w-50 mx-auto mb-3 text-primary' />
       {/* <h1>Search</h1> 
       <hr /> */}
 
@@ -78,7 +78,7 @@ export const SearchPage = () => {
 
             <div className="alert alert-danger animate__animated animate__fadeIn" 
                 style={{ display: showError ? '' : 'none' }}>
-              No hero with <b>{ q }</b>
+              Fruta no encontrada en el inventario:  <b>{ q }</b>
             </div>
 
 

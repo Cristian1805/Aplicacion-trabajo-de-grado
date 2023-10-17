@@ -10,8 +10,8 @@ export const HeroesRoutes = () => {
 
         <div className="container">
             <Routes>
-                <Route path="marvel" element={<MarvelPage />} />
-                <Route path="dc" element={<DcPage />} />
+                <Route path="tropicales" element={<MarvelPage />} />
+                <Route path="importadas" element={<DcPage />} />
 
                 <Route path="productos" element = {<ProductoForm />} /> 
                 
