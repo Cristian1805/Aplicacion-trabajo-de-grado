@@ -1,8 +1,14 @@
-# React + Vite
+# Sistema de inventarios fruty fenix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Pasos del desarrollo
 
-Currently, two official plugins are available:
+1. Instalar las dependencia del proyecto con yarn install
+2. Configurar el archivo .ENV
+3. Hacer los cambios respectivos para la ejecucion del proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+```
+
+VITE_API_URL = http://localhost:5174/api
+
+```
