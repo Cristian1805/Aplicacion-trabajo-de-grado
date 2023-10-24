@@ -9,7 +9,7 @@ import { getEnvVariables } from '../heroes/helpers';
 export const AppRouter = () => {
 
 
-  const authStatus = 'authenticated'; //'authenticated'; 'not authenticated';
+  const authStatus = 'checking'; //'authenticated'; 'not authenticated';
   
   console.log(getEnvVariables()); 
 
