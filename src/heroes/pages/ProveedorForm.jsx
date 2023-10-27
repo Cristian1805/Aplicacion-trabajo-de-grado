@@ -100,12 +100,6 @@ export const ProveedorForm = () => {
     setEditarProveedor(proveedor);
   };
 
-  const handleEliminarProveedor = (id) => {
-    // Mostrar la confirmación para eliminar el proveedor
-    setProveedorAEliminar(id);
-    setConfirmarEliminar(true);
-  };
-
   const confirmarEliminacion = () => {
     // Si el usuario confirma la eliminación, se procede a eliminar el proveedor.
     if (proveedorAEliminar) {
@@ -134,9 +128,13 @@ export const ProveedorForm = () => {
       setConfirmarEliminar(false);
     }
   };
+  
+  // El siguiente Fragmento muestra la confirmación para eliminar el proveedor 
+  const handleEliminarProveedor = (id) => {
+    setProveedorAEliminar(id);
+    setConfirmarEliminar(true);
+  };
 
-
-      
 
   return (
     <div className="container">
@@ -236,8 +234,8 @@ export const ProveedorForm = () => {
                 </button>
                 <button className="btn btn-danger btn-sm ml-2" onClick={() => handleEliminarProveedor(p._id)}>
                   Eliminar
-                </button>
-              </td>
+                </button> 
+              </td> 
             </tr> 
           ))}
         </tbody>
