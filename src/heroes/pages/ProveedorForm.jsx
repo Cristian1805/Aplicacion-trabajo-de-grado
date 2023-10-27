@@ -22,50 +22,61 @@ export const ProveedorForm = () => {
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
-    }).then((response) => response.json())
-    .then((json) => {
-      setProveedores(json)
-      console.log(proveedores)      
     })
-    // Datos de ejemplo
-    const proveedoresEjemplo = [
-      { id: 1, nombre: 'Proveedor 1', direccion: 'Dirección 1', correo: 'proveedor1@example.com', telefono: '1234567890' },
-      { id: 2, nombre: 'Proveedor 2', direccion: 'Dirección 2', correo: 'proveedor2@example.com', telefono: '9876543210' },
-    ];
-    setProveedores(proveedoresEjemplo);   
-  }, [updater])
+    .then((response) => response.json())
+    .then((json) => {
+      setProveedores(json);
+    })
+    .catch((error) => {
+      console.error('Error al obtener la lista de proveedores:', error);
+    });
+}, [updater]);
+    
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setProveedor({ ...proveedor, [name]: value });
   };
 
-  const crearProovedor = async () => {
-    await fetch("http://127.0.0.1:5174/proveedores", {
-      method: "POST",
-      body: JSON.stringify(proveedor),
-      headers: { "Content-type": "application/json; charset=UTF-8" }
-    }).then((response) => response.json())
-    .then((json) => {
-      console.log(json)
-      setUpdater(updater+1)
-      setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
-    })    
-  }
+  const crearProovedor = async () => { 
+    try {
+      await fetch("http://127.0.0.1:5174/proveedores", {
+        method: "POST",
+        body: JSON.stringify(proveedor),
+        headers: { "Content-type": "application/json; charset=UTF-8" }
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          setUpdater(updater + 1);
+          setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
+        });
+    } catch (error) {
+      console.error('Error al enviar datos:', error);
+      setMensaje('Hubo un error al crear el proveedor. Inténtalo de nuevo.');
+    }
+  };
 
   const actualizarProovedor = async () => {
-    await fetch("http://127.0.0.1:5174/proveedores/"+editarProveedor._id, {
-      method: "PUT",
-      body: JSON.stringify(proveedor),
-      headers: { "Content-type": "application/json; charset=UTF-8" }
-    }).then((response) => response.json())
-    .then((json) => {
-      console.log(json)
-      setUpdater(updater+1)
-      setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
-      setEditarProveedor(null)
-    })    
-  }
+    try {
+      await fetch("http://127.0.0.1:5174/proveedores/" + editarProveedor._id, {
+        method: "PUT",
+        body: JSON.stringify(proveedor),
+        headers: { "Content-type": "application/json; charset=UTF-8" }
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          setUpdater(updater + 1);
+          setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
+          setEditarProveedor(null);
+        });
+    } catch (error) {
+      console.error('Error al enviar datos:', error);
+      setMensaje('Hubo un error al actualizar el proveedor. Inténtalo de nuevo.');
+    }
+  };
+    
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -89,34 +100,43 @@ export const ProveedorForm = () => {
     setEditarProveedor(proveedor);
   };
 
-
-
   const handleEliminarProveedor = (id) => {
-    //Confirmacion para eliminar el proveedor
+    // Mostrar la confirmación para eliminar el proveedor
     setProveedorAEliminar(id);
     setConfirmarEliminar(true);
   };
 
   const confirmarEliminacion = () => {
     // Si el usuario confirma la eliminación, se procede a eliminar el proveedor.
-    if(proveedorAEliminar){
-      fetch("http://127.0.0.1:5174/proveedores/"+id, {
+    if (proveedorAEliminar) {
+      fetch(`http://127.0.0.1:5174/proveedores/${proveedorAEliminar}`, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json; charset=UTF-8"
         }
       })
-      .then((response) => response.json())
-      .then((json) => {
-        setUpdater(updater+1)
-        setMensaje('Proveedor eliminado exitosamente');
-      })
-      
-      //Despues de eliminar, se limpia el estado del formulario
+        .then((response) => response.json())
+        .then((json) => {
+          if (json.success) {
+            setUpdater(updater + 1);
+            setMensaje('Proveedor eliminado exitosamente');
+          } else {
+            setMensaje('Hubo un error al eliminar el proveedor.');
+          }
+        })
+        .catch((error) => {
+          console.error('Error al eliminar el proveedor:', error);
+          setMensaje('Hubo un error al eliminar el proveedor.');
+        });
+
+      // Después de eliminar, se limpia el estado del formulario
       setProveedorAEliminar(null);
       setConfirmarEliminar(false);
     }
   };
+
+
+      
 
   return (
     <div className="container">
@@ -222,8 +242,19 @@ export const ProveedorForm = () => {
           ))}
         </tbody>
       </table>
-    </div>
- 
+      {confirmarEliminar && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>¿Estás seguro de que deseas eliminar este proveedor?</h2>
+            <button className="btn btn-danger" onClick={confirmarEliminacion}>
+              Sí, eliminar
+            </button>
+            <button className="btn btn-primary" onClick={() => setConfirmarEliminar(false)}>
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
+    </div> 
   );
-};
-
+}; 
