@@ -2,4 +2,4 @@
 
 
 
-export * as frutyfenixApi from './FrutyfenixApi';
+export * as frutyfenixApi from './frutyfenixApi'; 

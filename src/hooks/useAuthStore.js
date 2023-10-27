@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import frutyfenixApi from '../api/frutyfenixApi';
 
 export const useAuthStore = () => {
 
@@ -8,6 +9,18 @@ export const useAuthStore = () => {
 
     const startLogin = async({email, password }) => {
         console.log({ email, password});
+
+
+        try {
+
+
+            const resp = await frutyfenixApi.post('/auth', {email, password}); 
+            console.log({ resp })
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
     }
 
     return {
