@@ -12,8 +12,6 @@ export const useAuthStore = () => {
 
 
         try {
-
-
             const resp = await frutyfenixApi.post('/auth', {email, password}); 
             console.log({ resp })
             
