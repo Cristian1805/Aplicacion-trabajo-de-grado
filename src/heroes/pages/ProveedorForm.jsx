@@ -27,10 +27,8 @@ export const ProveedorForm = () => {
       setProveedores(json)
       console.log(proveedores)      
     })
-    // Por ahora, usaremos datos de ejemplo.
+    // Datos de ejemplo
     const proveedoresEjemplo = [
-      { id: 1, nombre: 'Proveedor 1', direccion: 'Dirección 1', correo: 'proveedor1@example.com', telefono: '1234567890' },
-      { id: 2, nombre: 'Proveedor 2', direccion: 'Dirección 2', correo: 'proveedor2@example.com', telefono: '9876543210' },
       { id: 1, nombre: 'Proveedor 1', direccion: 'Dirección 1', correo: 'proveedor1@example.com', telefono: '1234567890' },
       { id: 2, nombre: 'Proveedor 2', direccion: 'Dirección 2', correo: 'proveedor2@example.com', telefono: '9876543210' },
     ];
@@ -225,47 +223,7 @@ export const ProveedorForm = () => {
         </tbody>
       </table>
     </div>
-
+ 
   );
 };
 
-
-// {confirmarEliminar && (
-//   <div className="modal" style={{ display: 'block' }}>
-//     <div className="modal-dialog">
-//       <div className="modal-content">
-//         <div className="modal-header">
-//           <h5 className="modal-title">Confirmar Eliminación</h5>
-//           <button
-//             type="button"
-//             className="close"
-//             data-dismiss="modal"
-//             onClick={cancelarEliminacion}
-//           >
-//             <span>&times;</span>
-//           </button>
-//         </div>
-//         <div className="modal-body">
-//           ¿Estás seguro de que deseas eliminar este proveedor?
-//         </div>
-//         <div className="modal-footer">
-//           <button
-//             type="button"
-//             className="btn btn-danger"
-//             onClick={confirmarEliminacion}
-//           >
-//             Sí, eliminar
-//           </button>
-//           <button
-//             type="button"
-//             className="btn btn-secondary"
-//             data-dismiss="modal"
-//             onClick={cancelarEliminacion}
-//           >
-//             Cancelar
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// )}
