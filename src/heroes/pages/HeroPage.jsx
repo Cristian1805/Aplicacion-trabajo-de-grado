@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { Navigate, useNavigate, useParams, Link } from 'react-router-dom';
 import { getHeroById } from '../helpers';
 
+
 export const HeroPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -39,18 +40,19 @@ export const HeroPage = () => {
       <h1 className="display-4 text-center mt-5">OPCIONES</h1>
       <hr className="w-50 mx-auto mb-4" />
 
-        <div className="button-container">
-          <button
-            className="btn btn-outline-primary"
-            onClick={onNavigateBack}
-          >
-            Regresar
-          </button>
-          
-          <Link to="/salida-frm" className="btn btn-outline-success">
-            Ir al Formulario de Salida
-          </Link>
-        </div>
+      <div className="button-container">
+        <button
+          className="btn btn-outline-primary mr-2"
+          onClick={onNavigateBack}
+        >
+          Regresar
+        </button>
+        
+        <Link to="/salida-frm" className="btn btn-outline-success ml-2">
+          Ir al Formulario de Salida
+        </Link>
+      </div>
+
       </div>
     </div>
   );

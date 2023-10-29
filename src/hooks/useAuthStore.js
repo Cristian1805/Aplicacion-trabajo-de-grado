@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import frutyfenixApi from '../api/frutyfenixApi';
 
-export const useAuthStore = () => { 
+
+import { clearErrorMessage, onChecking, onLogin, onLogout } from '../store/auth/authSlice'; 
+
+export const useAuthStore = () => {  
 
     const { status, user, errorMessage } = useSelector( state => state.auth );
     const dispatch = useDispatch();
@@ -9,13 +12,16 @@ export const useAuthStore = () => {
     const startLogin = async({ email, password }) => {
         dispatch( onChecking() );
         try {
-            const { data } = await frutyfenixApi.post('/auth',{ email, password });
+            console.log('AuthStore', email,'-', password) 
+            const { data } = await frutyfenixApi.post('http://127.0.0.1:5174/api/auth',{ email, password });
+            console.log(data, '--');
             localStorage.setItem('token', data.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
             dispatch( onLogin({ name: data.name, uid: data.uid }) );
             
         } catch (error) {
             dispatch( onLogout('Credenciales incorrectas') );
+            console.log('error', error)
             setTimeout(() => {
                 dispatch( clearErrorMessage() );
             }, 10);

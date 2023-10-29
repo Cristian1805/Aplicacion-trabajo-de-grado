@@ -1,9 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux'
 
 import { HeroesRoutes } from '../heroes';
 import { LoginPage } from '../auth';
 import { getEnvVariables } from '../heroes/helpers';
 
+import { store } from '../store/store';
 
 
 export const AppRouter = () => {
@@ -15,8 +17,8 @@ export const AppRouter = () => {
 
 
   return (
-    <>
-
+    <Provider store={store}> 
+    
         <Routes>
             
             <Route path="login" element={<LoginPage />} />
@@ -28,6 +30,9 @@ export const AppRouter = () => {
 
         </Routes>
     
-    </>
+  </Provider>
+
+    
+  
   )
 }
