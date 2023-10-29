@@ -1,7 +1,6 @@
+//HOOKS de la aplicacion
 import React, { useEffect } from 'react';
 import { useForm } from '../../hooks/useForm';
-// import { useAuthStore } from '../../hooks';
-
 import { useAuthStore } from '../../hooks/useAuthStore';
 import Swal from 'sweetalert2';
 
@@ -54,7 +53,7 @@ useEffect(() => {
   if ( errorMessage !== undefined ) {
     Swal.fire('Error en la autenticación', errorMessage, 'error');
   }
-}, [third]) 
+}, [errorMessage]) 
 
 
 
