@@ -12,16 +12,16 @@ export const useAuthStore = () => {
     const startLogin = async({ email, password }) => {
         dispatch( onChecking() );
         try {
-            console.log('AuthStore', email,'-', password) 
+            // console.log('AuthStore', email,'-', password) 
             const { data } = await frutyfenixApi.post('http://127.0.0.1:5174/api/auth',{ email, password });
-            console.log(data, '--');
+            // console.log(data, '--');
             localStorage.setItem('token', data.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
             dispatch( onLogin({ name: data.name, uid: data.uid }) );
             
         } catch (error) {
             dispatch( onLogout('Credenciales incorrectas') );
-            console.log('error', error)
+            // console.log('error', error)
             setTimeout(() => {
                 dispatch( clearErrorMessage() );
             }, 10);
