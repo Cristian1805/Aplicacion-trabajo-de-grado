@@ -10,10 +10,10 @@ export const Navbar = () => {
     }
 
     return (
-        <nav className="navbar navbar-expand-md navbar-dark bg-dark p-1">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1">
             <Link
             
-                className="navbar-brand"
+                class="navbar-brand fs-4"
                 to="/"
                 img src="/assets/heroes/casa.png" alt="Logo de la casa"
             >
@@ -58,13 +58,6 @@ export const Navbar = () => {
                     >
                         PRODUCTO
                     </NavLink>
-
-                    {/* <NavLink
-                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/salida-frm"
-                    >
-                        SALIDA
-                    </NavLink> */}
 
                     <NavLink
                         className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}

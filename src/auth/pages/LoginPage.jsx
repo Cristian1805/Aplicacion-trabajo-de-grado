@@ -101,13 +101,19 @@ useEffect(() => {
               />
             </div>
             <div className="form-group">
-              <button type="submit" className="btn btn-primary">
-                Iniciar Sesión
-              </button>
-            </div>
+            <button type="submit" className="btn btn-primary">
+              Iniciar Sesión
+            </button>
+          </div>
+
+          <div className="form-group">
+            <button type="button" class="btn btn-success">
+              Registrar Usuario
+            </button>
+          </div>
           </form>
         </div>
       </div>
-    </div>
+    </div> 
   );
 };
