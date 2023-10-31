@@ -9,12 +9,13 @@
 
 /* Estilos generales para el navbar */
 .navbar {
-    border-bottom: 2px solid #007BFF;
+    border-bottom: 2px solid #246535;
 }
 
 /* Estilos para el logo */
 .logo {
     width: 40px;
+    height: 30px;
     margin-right: 10px;
 }
 

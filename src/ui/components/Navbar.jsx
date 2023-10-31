@@ -13,13 +13,10 @@ export const Navbar = () => {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-            <Link
-            
-                class="navbar-brand fs-4"
-                to="/"
-                img src="/assets/heroes/casa.png" alt="Logo de la casa"
-            >
+            <Link className="navbar-brand" to="/">
+                <img src="/assets/frutas/casa.png" alt="Logo" width="30" height="30" /> Inicio
             </Link>
+        
 
             <button
                 className="navbar-toggler"
