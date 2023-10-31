@@ -5,13 +5,17 @@ export const useForm = ( initialForm = {}, formValidations = {}) => {
     const [ formState, setFormState ] = useState( initialForm );
     const [ formValidation, setFormValidation ] = useState({});
 
+
+    //Efecto 1
     useEffect(() => {
         createValidators();
-    }, [ formState ])
+    }, []) //formState
+    
 
+    //Efecto 1
     useEffect(() => {
         setFormState( initialForm );
-    }, [ initialForm ])
+    }, []) //initialForm
     
     
     const isFormValid = useMemo( () => {
@@ -47,7 +51,7 @@ export const useForm = ( initialForm = {}, formValidations = {}) => {
             formCheckedValues[`${ formField }Valid`] = fn( formState[formField] ) ? null : errorMessage;
         }
 
-        setFormValidation( formCheckedValues );
+        setFormValidation ( formCheckedValues ); 
     }
 
 
