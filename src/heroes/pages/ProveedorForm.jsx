@@ -12,97 +12,93 @@ export const ProveedorForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [proveedores, setProveedores] = useState([]);
   const [editarProveedor, setEditarProveedor] = useState(null);
-  const [updater, setUpdater] = useState(0)
+  const [updater, setUpdater] = useState(0);
 
   const [confirmarEliminar, setConfirmarEliminar] = useState(false);
-  const [proveedorAEliminar, setProveedorAEliminar] = useState(null); 
+  const [proveedorAEliminar, setProveedorAEliminar] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5174/proveedores", { 
+    fetch("http://127.0.0.1:5174/proveedores", {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
     })
-    .then((response) => response.json())
-    .then((json) => {
-      setProveedores(json);
-    })
-    .catch((error) => {
-      console.error('Error al obtener la lista de proveedores:', error);
-    });
-}, [updater]);
-    
+      .then((response) => response.json())
+      .then((json) => {
+        setProveedores(json);
+      })
+      .catch((error) => {
+        console.error('Error al obtener la lista de proveedores:', error);
+      });
+  }, [updater]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setProveedor({ ...proveedor, [name]: value });
   };
 
-  const crearProovedor = async () => { 
+  const crearProveedor = async () => {
     try {
-      await fetch("http://127.0.0.1:5174/proveedores", {
+      const response = await fetch("http://127.0.0.1:5174/proveedores", {
         method: "POST",
         body: JSON.stringify(proveedor),
         headers: { "Content-type": "application/json; charset=UTF-8" }
-      })
-        .then((response) => response.json()) 
-        .then((json) => {
-          console.log(json);
-          if (json.success) {
-            Swal.fire('¡Proveedor creado!', 'El proveedor se ha creado exitosamente.', 'success');
-            setUpdater(updater + 1);
-            setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
-          } else {
-            Swal.fire('Error', 'Hubo un error al crear el proveedor. Inténtalo de nuevo.', 'error');
-          }
-        });
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        Swal.fire('¡Proveedor creado!', 'El proveedor se ha creado exitosamente.', 'success');
+        setUpdater(updater + 1);
+        setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
+      } else {
+        Swal.fire('Error', 'Hubo un error al crear el proveedor. Inténtalo de nuevo.', 'error');
+      }
     } catch (error) {
       console.error('Error al enviar datos:', error);
       Swal.fire('Error', 'Hubo un error al crear el proveedor. Inténtalo de nuevo.', 'error');
     }
   };
 
-  const actualizarProovedor = async () => {
+  const actualizarProveedor = async () => {
     try {
-      await fetch("http://127.0.0.1:5174/proveedores/" + editarProveedor._id, {
+      const response = await fetch("http://127.0.0.1:5174/proveedores/" + editarProveedor._id, {
         method: "PUT",
         body: JSON.stringify(proveedor),
         headers: { "Content-type": "application/json; charset=UTF-8" }
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          console.log(json);
-          if (json.success) {
-            Swal.fire('¡Proveedor actualizado!', 'El proveedor se ha actualizado exitosamente.', 'success');
-            setUpdater(updater + 1);
-            setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
-            setEditarProveedor(null);
-          } else {
-            Swal.fire('Error', 'Hubo un error al actualizar el proveedor. Inténtalo de nuevo.', 'error');
-          }
-        });
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        Swal.fire('¡Proveedor actualizado!', 'El proveedor se ha actualizado exitosamente.', 'success');
+        setUpdater(updater + 1);
+        setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
+        setEditarProveedor(null);
+      } else {
+        Swal.fire('Error', 'Hubo un error al actualizar el proveedor. Inténtalo de nuevo.', 'error');
+      }
     } catch (error) {
       console.error('Error al enviar datos:', error);
       Swal.fire('Error', 'Hubo un error al actualizar el proveedor. Inténtalo de nuevo.', 'error');
     }
   };
-    
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsSubmitting(true);    
+    setIsSubmitting(true);
     try {
-      if(editarProveedor){
-        actualizarProovedor()
+      if (editarProveedor) {
+        await actualizarProveedor();
       } else {
-        crearProovedor()
+        await crearProveedor();
       }
-    } catch (error) {      
+    } catch (error) {
       console.error('Error al enviar datos:', error);
       setMensaje('Hubo un error al crear o actualizar el proveedor. Inténtalo de nuevo.');
     } finally {
-      setIsSubmitting(false); 
+      setIsSubmitting(false);
     }
   };
 
@@ -112,7 +108,6 @@ export const ProveedorForm = () => {
   };
 
   const confirmarEliminacion = () => {
-    // Si el usuario confirma la eliminación, se procede a eliminar el proveedor.
     if (proveedorAEliminar) {
       fetch(`http://127.0.0.1:5174/proveedores/${proveedorAEliminar}`, {
         method: "DELETE",
@@ -134,18 +129,15 @@ export const ProveedorForm = () => {
           setMensaje('Hubo un error al eliminar el proveedor.');
         });
 
-      // Después de eliminar, se limpia el estado del formulario
       setProveedorAEliminar(null);
       setConfirmarEliminar(false);
     }
   };
-  
-  // El siguiente Fragmento muestra la confirmación para eliminar el proveedor 
+
   const handleEliminarProveedor = (id) => {
     setProveedorAEliminar(id);
     setConfirmarEliminar(true);
   };
-
 
   return (
     <div className="container">
@@ -208,7 +200,6 @@ export const ProveedorForm = () => {
             name="telefono"
             value={proveedor.telefono}
             onChange={(e) => {
-              // Utilizamos una expresión regular para permitir solo números
               const inputValue = e.target.value.replace(/\D/g, '');
               setProveedor({ ...proveedor, telefono: inputValue });
             }}
@@ -233,21 +224,21 @@ export const ProveedorForm = () => {
           </tr>
         </thead>
         <tbody>
-          {proveedores.map((p) => ( 
+          {proveedores.map((p) => (
             <tr key={p._id}>
               <td>{p.nombre}</td>
               <td>{p.direccion}</td>
               <td>{p.correo}</td>
-              <td>{p.telefono}</td> 
+              <td>{p.telefono}</td>
               <td>
                 <button className="btn btn-warning btn-sm" onClick={() => handleEditarProveedor(p)}>
                   Editar
                 </button>
                 <button className="btn btn-danger btn-sm ml-2" onClick={() => handleEliminarProveedor(p._id)}>
                   Eliminar
-                </button> 
-              </td> 
-            </tr> 
+                </button>
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>
@@ -264,6 +255,6 @@ export const ProveedorForm = () => {
           </div>
         </div>
       )}
-    </div> 
+    </div>
   );
-}; 
+};
