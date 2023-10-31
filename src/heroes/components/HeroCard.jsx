@@ -33,7 +33,7 @@ export const HeroCard = ({
               <div className="card-body my-card-body">
                 <h5 className="card-title my-title">{superhero}</h5>
                 <p className="card-text my-text">{alter_ego}</p>
-                <CharactersByHero caracteristicas={caracteristicas} alter_ego={alter_ego} />
+                <CharactersByHero caracteristicas={caracteristicas} alter_ego={alter_ego} /> 
                 <Link to={`/hero/${id}`} className="btn btn-outline-success my-link">
                   Ingresar
                 </Link>

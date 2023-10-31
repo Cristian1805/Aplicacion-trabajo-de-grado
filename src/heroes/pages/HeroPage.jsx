@@ -50,7 +50,8 @@ export const HeroPage = () => {
       </div>
 
       <div className='form-group'>
-        <Link to="/salida-frm" className="btn btn-outline-success ml-2">
+        <Link to= {`/salida-frm/${id}`} className="btn btn-outline-success ml-2"> 
+
           Ir al Formulario de Salida
         </Link>
       </div>

@@ -22,7 +22,7 @@ export const HeroesRoutes = () => {
                 <Route path="proveedores" element={<ProveedorForm/>} />
 
 
-                <Route path="salida-frm" element={<InventarioSalida/>} />
+                <Route path="salida-frm/:id" element={<InventarioSalida/>} />
 
                 <Route path="reportes" element= {<Reportes /> } />
                                 

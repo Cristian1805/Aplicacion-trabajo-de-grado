@@ -1,12 +1,28 @@
+import { useMemo } from 'react';
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getHeroById } from '../helpers';
 
 export const InventarioSalida = () => {
+  const { id } = useParams();
+  
   const [fruitName, setFruitName] = useState('');
   const [quantity, setQuantity] = useState('');
-  const [unit, setUnit] = useState('pieces');
+  const [unit, setUnit] = useState('pieces'); 
+  const [calibre, setCalibre] = useState('100'); 
+
+  const hero = useMemo(() => getHeroById(id), [id]);
+  console.log(hero)
+  
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    const body = {
+      id_producto : id,
+      calibre: calibre,
+      cantidad: cantidad,
+      unidad: unidad
+    }
     // Aquí puedes agregar la lógica para registrar la salida de frutas en tu inventario
     console.log(`Se retiraron ${quantity} ${unit} de ${fruitName}`);
     // También puedes enviar esta información al servidor o almacenarla en una base de datos
@@ -47,9 +63,9 @@ export const InventarioSalida = () => {
             <div className="form-group">
               <label htmlFor="calibre">Calibre:</label>
               <select
-                id="unit"
-                value={unit}
-                onChange={(e) => setUnit(e.target.value)}
+                id="calibre"
+                value={calibre}
+                onChange={(e) => setCalibre(e.target.value)}
                 className="form-control"
               >
                 <option value="100">100</option>
