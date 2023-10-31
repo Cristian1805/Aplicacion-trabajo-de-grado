@@ -40,18 +40,21 @@ export const HeroPage = () => {
       <h1 className="display-4 text-center mt-5">OPCIONES</h1>
       <hr className="w-50 mx-auto mb-4" />
 
-      <div className="button-container">
+      <div className="form-group">
         <button
           className="btn btn-outline-primary mr-2"
           onClick={onNavigateBack}
         >
           Regresar
-        </button>
-        
+        </button> 
+      </div>
+
+      <div className='form-group'>
         <Link to="/salida-frm" className="btn btn-outline-success ml-2">
           Ir al Formulario de Salida
         </Link>
       </div>
+      
 
       </div>
     </div>
