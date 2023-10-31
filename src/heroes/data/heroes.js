@@ -7,6 +7,32 @@ export const heroes = [
         'first_appearance':'Detective Comics #27',
         'caracteristicas':''
     },
+    {
+        'id': 'dc-manzanaverde',
+        'superhero':'Manzana Verde', 
+        'publisher':'DC Comics', 
+        'alter_ego':'Manzana Verde',
+        'first_appearance':'Detective Comics #27',
+        'caracteristicas':''
+    },
+
+    {
+        'id': 'dc-manzanaroja',
+        'superhero':'Manzana Roja', 
+        'publisher':'DC Comics', 
+        'alter_ego':'Manzana Roja',
+        'first_appearance':'Detective Comics #27', 
+        'characters':'Bruce Wayne'
+    },
+
+    {
+        'id': 'dc-pera',
+        'superhero':'Pera', 
+        'publisher':'DC Comics', 
+        'alter_ego':'Pera',
+        'first_appearance':'Detective Comics #27',
+        'characters':'Bruce Wayne'
+    },
 
     {
         'id': 'dc-arandanos',
@@ -41,24 +67,6 @@ export const heroes = [
         'publisher':'DC Comics', 
         'alter_ego':'Kiwi',
         'first_appearance':'Detective Comics #27',
-        'characters':'Bruce Wayne'
-    },
-
-    {
-        'id': 'dc-pera',
-        'superhero':'Pera', 
-        'publisher':'DC Comics', 
-        'alter_ego':'Pera',
-        'first_appearance':'Detective Comics #27',
-        'characters':'Bruce Wayne'
-    },
-
-    {
-        'id': 'dc-manzanaroja',
-        'superhero':'Manzana Roja', 
-        'publisher':'DC Comics', 
-        'alter_ego':'Manzana Roja',
-        'first_appearance':'Detective Comics #27', 
         'characters':'Bruce Wayne'
     },
 
