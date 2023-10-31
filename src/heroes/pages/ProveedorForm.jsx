@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 export const ProveedorForm = () => {
   const [proveedor, setProveedor] = useState({
@@ -45,15 +46,20 @@ export const ProveedorForm = () => {
         body: JSON.stringify(proveedor),
         headers: { "Content-type": "application/json; charset=UTF-8" }
       })
-        .then((response) => response.json())
+        .then((response) => response.json()) 
         .then((json) => {
           console.log(json);
-          setUpdater(updater + 1);
-          setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
+          if (json.success) {
+            Swal.fire('¡Proveedor creado!', 'El proveedor se ha creado exitosamente.', 'success');
+            setUpdater(updater + 1);
+            setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
+          } else {
+            Swal.fire('Error', 'Hubo un error al crear el proveedor. Inténtalo de nuevo.', 'error');
+          }
         });
     } catch (error) {
       console.error('Error al enviar datos:', error);
-      setMensaje('Hubo un error al crear el proveedor. Inténtalo de nuevo.');
+      Swal.fire('Error', 'Hubo un error al crear el proveedor. Inténtalo de nuevo.', 'error');
     }
   };
 
@@ -67,13 +73,18 @@ export const ProveedorForm = () => {
         .then((response) => response.json())
         .then((json) => {
           console.log(json);
-          setUpdater(updater + 1);
-          setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
-          setEditarProveedor(null);
+          if (json.success) {
+            Swal.fire('¡Proveedor actualizado!', 'El proveedor se ha actualizado exitosamente.', 'success');
+            setUpdater(updater + 1);
+            setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
+            setEditarProveedor(null);
+          } else {
+            Swal.fire('Error', 'Hubo un error al actualizar el proveedor. Inténtalo de nuevo.', 'error');
+          }
         });
     } catch (error) {
       console.error('Error al enviar datos:', error);
-      setMensaje('Hubo un error al actualizar el proveedor. Inténtalo de nuevo.');
+      Swal.fire('Error', 'Hubo un error al actualizar el proveedor. Inténtalo de nuevo.', 'error');
     }
   };
     

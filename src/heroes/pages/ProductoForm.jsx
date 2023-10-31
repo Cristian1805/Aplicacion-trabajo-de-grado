@@ -2,16 +2,25 @@ import React, { useState } from 'react';
 import './styles.css/ProductoForm.css'
 
 export const ProductoForm = () => {
+
+
+  const [idProducto, setIdProducto] = useState('');
   const [fruitName, setFruitName] = useState('');
+  const [calibre, setCalibre] = useState('Sin Calibre');
   const [quantity, setQuantity] = useState('');
-  const [unit, setUnit] = useState('pieces');
+  const [unit, setUnit] = useState('Cajas');
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(`Se retiraron ${quantity} ${unit} de ${fruitName}`);
+    console.log(`Entraron al inventario ${quantity} ${unit} de ${fruitName}`);
     setFruitName('');
+    setIdProducto('');
+    setCalibre('');
     setQuantity('');
+
+    console.log(idProducto, fruitName, calibre, quantity, unit)
   };
+
 
   return (
     <div className="container">
@@ -25,8 +34,8 @@ export const ProductoForm = () => {
               <input
                 type="text"
                 id="fruitName"
-                value={fruitName}
-                onChange={(e) => setFruitName(e.target.value)}
+                value={idProducto}
+                onChange={(e) => setIdProducto(e.target.value)}
                 required
                 className="form-control"
               />
@@ -42,12 +51,14 @@ export const ProductoForm = () => {
                 className="form-control"
               />
             </div>
+
+            
             <div className="form-group">
               <label htmlFor="calibre">Calibre:</label>
               <select
                 id="unit"
-                value={unit}
-                onChange={(e) => setUnit(e.target.value)}
+                value={calibre}
+                onChange={(e) => setCalibre(e.target.value)}
                 className="form-control"
               >
                 <option value="Sin Calibre">Sin Calibre</option>
@@ -78,8 +89,8 @@ export const ProductoForm = () => {
                 onChange={(e) => setUnit(e.target.value)}
                 className="form-control"
               >
-                <option value="pieces">Unidad</option>
-                <option value="kilograms">Kilogramos</option>
+                <option value="Cajas">Unidad</option>
+                <option value="kilogramos">Kilogramos</option> 
               </select>
             </div>
             <button type="submit" className="btn btn-primary btn-block">
