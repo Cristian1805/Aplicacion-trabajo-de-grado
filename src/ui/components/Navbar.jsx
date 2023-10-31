@@ -1,3 +1,5 @@
+import './Navbar.css'
+
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
@@ -17,7 +19,6 @@ export const Navbar = () => {
                 to="/"
                 img src="/assets/heroes/casa.png" alt="Logo de la casa"
             >
-                MENU PRINCIPAL
             </Link>
 
             <button
@@ -92,3 +93,4 @@ export const Navbar = () => {
         </nav>
     )
 }
+

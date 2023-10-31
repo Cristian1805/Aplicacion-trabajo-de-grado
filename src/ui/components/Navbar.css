@@ -7,3 +7,45 @@
     }      
 }
 
+/* Estilos generales para el navbar */
+.navbar {
+    border-bottom: 2px solid #007BFF;
+}
+
+/* Estilos para el logo */
+.logo {
+    width: 40px;
+    margin-right: 10px;
+}
+
+/* Estilos para los elementos del menú */
+.nav-item {
+    margin-right: 10px;
+}
+
+/* Estilos para el nombre de usuario */
+.username {
+    font-weight: bold;
+    color: #fff;
+    margin-right: 20px;
+}
+
+/* Estilos para el botón de cierre de sesión */
+.logout-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilos para el enlace activo en el menú */
+.nav-link.active {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+
