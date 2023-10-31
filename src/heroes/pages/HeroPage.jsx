@@ -14,7 +14,7 @@ export const HeroPage = () => {
   }
 
   if (!hero) {
-    // Redirige a una página de error 404 si no se encuentra el héroe.
+    // Redirige a una página de error 404 si no se encuentra la fruta.
     return <Navigate to="/not-found" />;
   }
 

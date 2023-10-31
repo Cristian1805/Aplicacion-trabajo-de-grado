@@ -1,5 +1,6 @@
 //HOOKS de la aplicacion
 import React, { useEffect } from 'react';
+import { Link, useNavigate} from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuthStore } from '../../hooks/useAuthStore';
 import Swal from 'sweetalert2';
@@ -14,39 +15,23 @@ const loginFormFields = {
   loginPassword: '',
 }
 
-const registerFormFields = { 
-  registerName:      '',
-  registerEmail:     '',
-  registerPassword:  '',
-  registerPassword2: '',
-}
+
 
 
 
 
 export const LoginPage = () => {
 
+  const navigate = useNavigate();
   const { startLogin, errorMessage } = useAuthStore();       
-
-  
   const { loginEmail, loginPassword, onInputChange:onLoginInputChange } = useForm( loginFormFields );
-  const { registerEmail, registerName, registerPassword, registerPassword2, onInputChange:onRegisterInputChange } = useForm( registerFormFields );
+ 
 
   const loginSubmit = ( event ) => {
     event.preventDefault();
-    console.log('LoginPage', loginEmail, '-', loginPassword )
+    // console.log('LoginPage', loginEmail, '-', loginPassword )
     startLogin({ email: loginEmail, password: loginPassword });
 
-}
-
-const registerSubmit = ( event ) => {
-  event.preventDefault();
-  if ( registerPassword !== registerPassword2 ) {
-      Swal.fire('Error en registro', 'Contraseñas no son iguales', 'error');
-      return;
-  }
-
-  startRegister({ name: registerName, email: registerEmail, password: registerPassword });
 }
 
 useEffect(() => {
@@ -107,9 +92,9 @@ useEffect(() => {
           </div>
 
           <div className="form-group">
-            <button type="button" class="btn btn-success">
-              Registrar Usuario
-            </button>
+            <Link to="/register" className="btn btn-secondary">
+            Registo Usuario 
+            </Link>
           </div>
           </form>
         </div>

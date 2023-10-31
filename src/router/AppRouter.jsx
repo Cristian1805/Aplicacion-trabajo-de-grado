@@ -6,6 +6,7 @@ import { LoginPage } from '../auth';
 import { getEnvVariables } from '../heroes/helpers';
 
 import { store } from '../store/store';
+import { RegisterPage } from '../auth/pages/RegisterPage'; 
 
 
 export const AppRouter = () => {
@@ -22,9 +23,10 @@ export const AppRouter = () => {
         <Routes>
             
             <Route path="login" element={<LoginPage />} />
+            <Route path="register" element={<RegisterPage />} /> 
+             
             
-            
-            <Route path="/*" element={ <HeroesRoutes />} />
+            <Route path="/*" element={ <HeroesRoutes />} /> 
             
             
 

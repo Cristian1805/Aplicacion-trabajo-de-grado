@@ -14,14 +14,12 @@ export const useAuthStore = () => {
         try {
             // console.log('AuthStore', email,'-', password) 
             const { data } = await frutyfenixApi.post('http://127.0.0.1:5174/api/auth',{ email, password });
-            // console.log(data, '--');
             localStorage.setItem('token', data.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
             dispatch( onLogin({ name: data.name, uid: data.uid }) );
             
         } catch (error) {
             dispatch( onLogout('Credenciales incorrectas') );
-            // console.log('error', error)
             setTimeout(() => {
                 dispatch( clearErrorMessage() );
             }, 10);
@@ -31,7 +29,7 @@ export const useAuthStore = () => {
     const startRegister = async({ email, password, name }) => {
         dispatch( onChecking() );
         try {
-            const { data } = await frutyfenixApi.post('/auth/new',{ email, password, name });
+            const { data } = await frutyfenixApi.post('http://127.0.0.1:5174/api/auth/new',{ email, password, name });
             localStorage.setItem('token', data.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
             dispatch( onLogin({ name: data.name, uid: data.uid }) );
