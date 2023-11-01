@@ -54,10 +54,10 @@
 
   #my-title {
     font-size: 28px; /* Tamaño de fuente */
-    font-weight: bold; /* Negrita */
+    font-weight: lighter; /* Negrita */
     text-align: center; /* Alineación al centro */
     margin-top: 20px; /* Margen superior */
-    color: #090909; /* Color del texto, puedes personalizarlo */
+    color: #323030; /* Color del texto, puedes personalizarlo */
     /* Otros estilos que desees aplicar */
   }
   

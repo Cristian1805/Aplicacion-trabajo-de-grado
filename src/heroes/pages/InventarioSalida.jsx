@@ -32,7 +32,7 @@ export const InventarioSalida = () => {
     e.preventDefault();
 
 
-    // Aquí puedes agregar la lógica para registrar la salida de frutas en tu inventario
+    // Logica del inventario de frutas  
     
     try {
       const url = 'http://localhost:5174' + '/inventario'; 
@@ -60,9 +60,9 @@ export const InventarioSalida = () => {
     <div className="container">
       <div className="row">
         <div className="col-12 col-md-6 mx-auto">
-          <h1 className="display-4 text-center mt-5">SALIDA DE PRODUCTO</h1>
+          <h1 id="my-title">SALIDA DE MERCANCIA</h1>
           <hr className="w-50 mx-auto mb-4" />
-          <form onSubmit={handleFormSubmit}>
+          <form onSubmit={handleFormSubmit}> 
             <div className="form-group">
               <label htmlFor="fruitName" className="label-fruit">Identificador de la Fruta:</label>
               <h1 className="h1-fruit">{id}</h1>

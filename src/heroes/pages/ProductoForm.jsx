@@ -1,7 +1,22 @@
+// Importa dotenv
+
+import { useMemo } from 'react';
 import React, { useState } from 'react';
-import './styles.css/ProductoForm.css'
+import { useParams } from 'react-router-dom';
+import { getHeroById } from '../helpers';
+
+import './styles.css/InventarioSalida.css' 
+
+
+// import dotenv from 'dotenv';
+// dotenv.config(); 
+
+import axios from 'axios';
+// import { getEnvVariables } from '../helpers/index'
 
 export const ProductoForm = () => {
+  const { id } = useParams();
+  const hero = useMemo(() => getHeroById(id), [id]);
 
 
   const [idProducto, setIdProducto] = useState('');
@@ -10,53 +25,57 @@ export const ProductoForm = () => {
   const [quantity, setQuantity] = useState('');
   const [unit, setUnit] = useState('Cajas');
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(`Entraron al inventario ${quantity} ${unit} de ${fruitName}`);
-    setFruitName('');
-    setIdProducto('');
-    setCalibre('');
+
+
+    // Logica del inventario de frutas  
+    
+    try {
+      const url = 'http://localhost:5174' + '/inventario'; 
+      
+      const body = {
+        id_producto : id,
+        calibre: calibre,
+        cantidad: quantity,
+        unidad: unit
+      }
+      
+      console.log(url);
+      const response = await axios.post(url, body);
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+    console.log(`Se retiraron ${quantity} ${unit} de ${fruitName}`);
+    // También puedes enviar esta información al servidor o almacenarla en una base de datos
+    // Luego, puedes actualizar el estado y borrar los campos del formulario
     setQuantity('');
-
-    console.log(idProducto, fruitName, calibre, quantity, unit)
   };
-
 
   return (
     <div className="container">
       <div className="row">
         <div className="col-12 col-md-6 mx-auto">
-        <h1 id="my-title">ENTRADA DE PRODUCTO</h1>
+          <h1 id="my-title">ENTRADA DE MERCANCIA AL INVENTARIO</h1>
           <hr className="w-50 mx-auto mb-4" />
-          <form onSubmit={handleFormSubmit}>
+          <form onSubmit={handleFormSubmit}> 
             <div className="form-group">
-              <label htmlFor="fruitName">Identificador de la Fruta:</label>
-              <input
-                type="text"
-                id="fruitName"
-                value={idProducto}
-                onChange={(e) => setIdProducto(e.target.value)}
-                required
-                className="form-control"
-              />
+              <label htmlFor="fruitName" className="label-fruit">Identificador de la Fruta:</label>
+              <h1 className="h1-fruit">{id}</h1>
+              
             </div>
             <div className="form-group">
-              <label htmlFor="fruitName">Nombre de la Fruta:</label>
-              <input
-                type="text"
-                id="fruitName"
-                value={fruitName}
-                onChange={(e) => setFruitName(e.target.value)}
-                required
-                className="form-control"
-              />
-            </div>
+            <label htmlFor="fruitName" className="label-fruta">
+              Nombre de la Fruta:
+            </label>
+            <h1 className="titulo-fruta">{fruitName}</h1> 
 
-            
+            </div>
             <div className="form-group">
               <label htmlFor="calibre">Calibre:</label>
               <select
-                id="unit"
+                id="calibre"
                 value={calibre}
                 onChange={(e) => setCalibre(e.target.value)}
                 className="form-control"
@@ -90,11 +109,11 @@ export const ProductoForm = () => {
                 className="form-control"
               >
                 <option value="Cajas">Unidad</option>
-                <option value="kilogramos">Kilogramos</option> 
+                <option value="kilograms">Kilogramos</option>
               </select>
             </div>
             <button type="submit" className="btn btn-primary btn-block">
-              Registrar Entrada Producto 
+              Registrar Entrada
             </button>
           </form>
         </div>

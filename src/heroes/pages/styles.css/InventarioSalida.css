@@ -35,4 +35,69 @@
     color: #00a300; /* Cambia el color para resaltar frutas en stock */
     font-weight: normal; /* Reduce la negrita en stock */
   }
+
+  /* Estilos CSS para el formulario */
+.container {
+    padding: 20px;
+  }
+  
+  .my-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  .my-card h1 {
+    font-size: 24px;
+  }
+  
+  .my-card hr {
+    border-color: #007BFF;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-control {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+  }
+  
+  .btn-primary {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-block {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  #my-title {
+    font-size: 28px; /* Tamaño de fuente */
+    font-weight: lighter; /* Negrita */
+    text-align: center; /* Alineación al centro */
+    margin-top: 20px; /* Margen superior */
+    color: #323030; /* Color del texto, puedes personalizarlo */
+    /* Otros estilos que desees aplicar */
+  }
+  
+  
   

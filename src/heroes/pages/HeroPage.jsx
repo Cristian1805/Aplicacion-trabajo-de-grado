@@ -55,6 +55,13 @@ export const HeroPage = () => {
           Ir al Formulario de Salida
         </Link>
       </div>
+
+      <div className='form-group'>
+        <Link to="productos" className="btn btn-outline-secondary ml-2"> 
+
+          Registrar entrada de producto
+        </Link>
+      </div>
       
 
       </div>
