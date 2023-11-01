@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import { getEnvVariables } from '../helpers';
 import { getEnvVariables } from '../heroes/helpers/index'
 
 const { VITE_API_URL } = getEnvVariables

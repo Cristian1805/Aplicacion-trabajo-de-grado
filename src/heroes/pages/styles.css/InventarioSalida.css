@@ -1,0 +1,38 @@
+/* Estilos para la etiqueta de nombre de fruta */
+.label-fruit, .label-fruta {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  
+  /* Estilos para el título de fruta */
+  .h1-fruit, .titulo-fruta {
+    font-size: 36px;
+    color: #4a4544ed;
+    margin: 0; 
+  }
+  
+  /* Estilos adicionales para el título de fruta en el contexto de un sistema de inventario */
+  .titulo-fruta {
+    background-color: #f3f3f3; /* Fondo gris claro */
+    padding: 10px; /* Espacio interno alrededor del título */
+    border: 1px solid #ccc; /* Borde ligero */
+    border-radius: 4px; /* Bordes redondeados */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centra el texto horizontalmente */
+    width: 200px; /* Ancho fijo para resaltar el título */
+  }
+  
+  /* Cambia el color de la etiqueta cuando está en un estado activo o en foco */
+  .label-fruit:focus, .label-fruta:focus {
+    color: #ff5733; /* Cambia el color al estar en foco */
+  }
+  
+  /* Estilos para resaltar la fruta en stock */
+  .h1-fruit.in-stock, .titulo-fruta.in-stock {
+    color: #00a300; /* Cambia el color para resaltar frutas en stock */
+    font-weight: normal; /* Reduce la negrita en stock */
+  }
+  

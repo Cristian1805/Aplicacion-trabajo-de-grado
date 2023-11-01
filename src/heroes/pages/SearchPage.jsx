@@ -5,10 +5,10 @@ import { useForm } from '../../hooks/useForm';
 import { HeroCard } from '../components';
 import { getHeroesByName } from '../helpers'; 
 
-export const SearchPage = () => {
+export const SearchPage = () => { 
 
   const navigate = useNavigate();
-  const location = useLocation();
+  const location = useLocation(); 
 
   const { q = '' } = queryString.parse( location.search );
   const heroes = getHeroesByName(q);

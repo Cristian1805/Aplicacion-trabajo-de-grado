@@ -1,33 +1,58 @@
+// Importa dotenv
+
 import { useMemo } from 'react';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getHeroById } from '../helpers';
 
+import './styles.css/InventarioSalida.css' 
+
+
+// import dotenv from 'dotenv';
+// dotenv.config(); 
+
+import axios from 'axios';
+// import { getEnvVariables } from '../helpers/index'
+
 export const InventarioSalida = () => {
   const { id } = useParams();
-  
-  const [fruitName, setFruitName] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [unit, setUnit] = useState('pieces'); 
-  const [calibre, setCalibre] = useState('100'); 
-
   const hero = useMemo(() => getHeroById(id), [id]);
-  console.log(hero)
+  
+  const fruitName = hero.superhero;
+  const [quantity, setQuantity] = useState('');
+  const [unit, setUnit] = useState('Cajas'); 
+  const [calibre, setCalibre] = useState('100');
+
+  // const  VITE_API_URL  = process.env.REACT_APP_VITE_API_URL;
+  
+  // console.log(hero) 
   
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const body = {
-      id_producto : id,
-      calibre: calibre,
-      cantidad: cantidad,
-      unidad: unidad
-    }
+
+
     // Aquí puedes agregar la lógica para registrar la salida de frutas en tu inventario
+    
+    try {
+      const url = 'http://localhost:5174' + '/inventario'; 
+      
+      const body = {
+        id_producto : id,
+        calibre: calibre,
+        cantidad: quantity,
+        unidad: unit
+      }
+      
+      console.log(url);
+      const response = await axios.post(url, body);
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
     console.log(`Se retiraron ${quantity} ${unit} de ${fruitName}`);
     // También puedes enviar esta información al servidor o almacenarla en una base de datos
     // Luego, puedes actualizar el estado y borrar los campos del formulario
-    setFruitName('');
     setQuantity('');
   };
 
@@ -39,26 +64,16 @@ export const InventarioSalida = () => {
           <hr className="w-50 mx-auto mb-4" />
           <form onSubmit={handleFormSubmit}>
             <div className="form-group">
-              <label htmlFor="fruitName">Identificador de la Fruta:</label>
-              <input
-                type="text"
-                id="fruitName"
-                value={fruitName}
-                onChange={(e) => setFruitName(e.target.value)}
-                required
-                className="form-control"
-              />
+              <label htmlFor="fruitName" className="label-fruit">Identificador de la Fruta:</label>
+              <h1 className="h1-fruit">{id}</h1>
+              
             </div>
             <div className="form-group">
-              <label htmlFor="fruitName">Nombre de la Fruta:</label>
-              <input
-                type="text"
-                id="fruitName"
-                value={fruitName}
-                onChange={(e) => setFruitName(e.target.value)}
-                required
-                className="form-control"
-              />
+            <label htmlFor="fruitName" className="label-fruta">
+              Nombre de la Fruta:
+            </label>
+            <h1 className="titulo-fruta">{fruitName}</h1> 
+
             </div>
             <div className="form-group">
               <label htmlFor="calibre">Calibre:</label>
@@ -68,6 +83,7 @@ export const InventarioSalida = () => {
                 onChange={(e) => setCalibre(e.target.value)}
                 className="form-control"
               >
+                <option value="Sin Calibre">Sin Calibre</option>
                 <option value="100">100</option>
                 <option value="113">113</option>
                 <option value="125">125</option>
@@ -95,7 +111,7 @@ export const InventarioSalida = () => {
                 onChange={(e) => setUnit(e.target.value)}
                 className="form-control"
               >
-                <option value="pieces">Unidad</option>
+                <option value="Cajas">Unidad</option>
                 <option value="kilograms">Kilogramos</option>
               </select>
             </div>
