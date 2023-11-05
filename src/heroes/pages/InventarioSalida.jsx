@@ -40,7 +40,7 @@ export const InventarioSalida = () => {
       const body = {
         id_producto : id,
         calibre: calibre,
-        cantidad: quantity,
+        cantidad: -quantity,
         unidad: unit
       }
       

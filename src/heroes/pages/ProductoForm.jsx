@@ -15,12 +15,12 @@ import axios from 'axios';
 // import { getEnvVariables } from '../helpers/index'
 
 export const ProductoForm = () => {
+
   const { id } = useParams();
   const hero = useMemo(() => getHeroById(id), [id]);
 
 
-  const [idProducto, setIdProducto] = useState('');
-  const [fruitName, setFruitName] = useState('');
+  const fruitName = hero.superhero;
   const [calibre, setCalibre] = useState('Sin Calibre');
   const [quantity, setQuantity] = useState('');
   const [unit, setUnit] = useState('Cajas');
@@ -44,10 +44,10 @@ export const ProductoForm = () => {
       console.log(url);
       const response = await axios.post(url, body);
       console.log('Response:', response.data);
+      console.log(`Entraron al inventario ${quantity} ${unit} de ${fruitName}`);
     } catch (error) {
       console.error('Error:', error);
     }
-    console.log(`Se retiraron ${quantity} ${unit} de ${fruitName}`);
     // También puedes enviar esta información al servidor o almacenarla en una base de datos
     // Luego, puedes actualizar el estado y borrar los campos del formulario
     setQuantity('');

@@ -81,7 +81,7 @@ export const heroes = [
 
 
     {
-        'id': 'marvel-banano',
+        'id': 'nac-banano',
         'superhero':'Banano', 
         'publisher':'Marvel Comics', 
         'alter_ego':'Banano',
@@ -90,7 +90,7 @@ export const heroes = [
     },
 
     {
-        'id': 'marvel-papaya',
+        'id': 'nac-papaya',
         'superhero':'Papaya', 
         'publisher':'Marvel Comics', 
         'alter_ego':'Papaya',
@@ -99,7 +99,7 @@ export const heroes = [
     },
 
     {
-        'id': 'marvel-granadilla',
+        'id': 'nac-granadilla',
         'superhero':'Granadilla', 
         'publisher':'Marvel Comics', 
         'alter_ego':'Granadilla',
@@ -108,7 +108,7 @@ export const heroes = [
     },
 
     {
-        'id': 'marvel-isabella',
+        'id': 'nac-isabella',
         'superhero':'Uva Isabella', 
         'publisher':'Marvel Comics', 
         'alter_ego':'Uva Isabella',
@@ -117,7 +117,7 @@ export const heroes = [
     },
 
     {
-        'id': 'marvel-mango',
+        'id': 'nac-mango',
         'superhero':'Mango', 
         'publisher':'Marvel Comics', 
         'alter_ego':'Mango',
@@ -126,7 +126,7 @@ export const heroes = [
     },
 
     {
-        'id': 'marvel-melon',
+        'id': 'nac-melon',
         'superhero':'Melón', 
         'publisher':'Marvel Comics', 
         'alter_ego':'Melon',
@@ -135,7 +135,7 @@ export const heroes = [
     },
 
     {
-        'id': 'marvel-piña',
+        'id': 'nac-piña',
         'superhero':'Piña', 
         'publisher':'Marvel Comics', 
         'alter_ego':'Piña',

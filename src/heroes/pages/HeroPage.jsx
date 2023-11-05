@@ -24,7 +24,7 @@ export const HeroPage = () => {
         <img
           src={`/assets/frutas/${id}.jpg`} 
           alt={hero.superhero}
-          className="img-fluid"
+          className="img-fluid" 
         />
       </div>
 
@@ -32,8 +32,8 @@ export const HeroPage = () => {
         <h3>{hero.superhero}</h3>
         <ul className="list-group list-group-flush">
           <li className="list-group-item"> <b>Tipo de fruta:</b> {hero.alter_ego} </li>
-          <li className="list-group-item"> <b>Publisher:</b> {hero.publisher} </li>
-          <li className="list-group-item"> <b>First appearance:</b> {hero.first_appearance} </li>
+          {/* <li className="list-group-item"> <b>Publisher:</b> {hero.publisher} </li>
+          <li className="list-group-item"> <b>First appearance:</b> {hero.first_appearance} </li> */}
         </ul>
 
 
@@ -46,7 +46,8 @@ export const HeroPage = () => {
           onClick={onNavigateBack}
         >
           Regresar
-        </button> 
+        </button>
+
       </div>
 
       <div className='form-group'>
@@ -57,7 +58,7 @@ export const HeroPage = () => {
       </div>
 
       <div className='form-group'>
-        <Link to="productos" className="btn btn-outline-secondary ml-2"> 
+        <Link to= {`/productos/${id}`} className="btn btn-outline-secondary ml-2"> 
 
           Registrar entrada de producto
         </Link>
