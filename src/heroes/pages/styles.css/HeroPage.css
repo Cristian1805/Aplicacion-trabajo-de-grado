@@ -1,0 +1,62 @@
+/* HeroPage.css */
+
+/* Estilos para el contenedor principal */
+.row {
+    margin-top: 1rem;
+  }
+  
+  /* Estilos para la imagen */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Estilos para la información del héroe */
+  .col-md-8 {
+    padding: 1rem;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
+  
+  .list-group-item {
+    font-size: 16px;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Estilos para las opciones */
+  .display-4 {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .w-50 {
+    width: 50%;
+  }
+  
+  .form-group {
+    margin-top: 1rem;
+  }
+  
+  .btn {
+    font-size: 16px;
+  }
+  
+  /* Estilos específicos para los botones */
+  .btn-outline-primary {
+    background-color: #007bff; 
+    color: #fff;
+  }
+  
+  .btn-outline-success {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .btn-outline-secondary {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  

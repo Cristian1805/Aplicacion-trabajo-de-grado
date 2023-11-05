@@ -3,6 +3,9 @@ import { Navigate, useNavigate, useParams, Link } from 'react-router-dom';
 import { getHeroById } from '../helpers';
 
 
+import './styles.css/HeroPage.css'
+
+
 export const HeroPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
