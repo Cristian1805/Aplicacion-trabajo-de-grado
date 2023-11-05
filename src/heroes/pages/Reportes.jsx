@@ -29,15 +29,16 @@ export const Reportes = () => {
     <div className="container mt-4">
       <h1 className='display-4 text-center mt-5' > REPORTES FRUTY FENIX</h1>
       <hr className='w-50 mx-auto mb-3' />
-      <table className="table table-striped">
-        <thead>
+      <div className='table-resposive'>
+      <table className="table table-striped table-bordered">
+        <thead className="thead-dark">
           <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Calibre</th>
             <th>Cajas/Kgs</th>
           </tr>
-        </thead>
+        </thead> 
         <tbody>
         {datos.map(producto =>{ const hero = getNombre(producto.id_producto)
           return(<tr key={producto._id}>
@@ -49,6 +50,7 @@ export const Reportes = () => {
         })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };
