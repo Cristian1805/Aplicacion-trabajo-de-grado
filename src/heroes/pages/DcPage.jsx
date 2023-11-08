@@ -1,11 +1,12 @@
 import { HeroList } from '../components';
+import './styles.css/DcPage.css'
 
 
 export const DcPage = () => {
   return (
     <>
-      <h1 className='display-4 text-center mt-5' >FRUTAS IMPORTADAS</h1>
-      <hr className='w-50 mx-auto mb-3' />
+      <h1 className='form-title-importadas' >FRUTAS IMPORTADAS</h1>
+      <hr className='form-divider-importadas' />
 
       <HeroList publisher='DC Comics' />
     </>

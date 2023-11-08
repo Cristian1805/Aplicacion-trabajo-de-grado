@@ -1,55 +1,14 @@
-/* LoginPage.css */
+/* styles.css (o el nombre de tu archivo de estilos) */
+.form-title {
+  font-family: 'Verdana', sans-serif;
+  font-size: 30px; /* Tamaño de fuente */
+  color: #0c0b0b;   /* Color del texto */
+}
 
-.container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    flex-direction: column; 
-  }
-  
-  .logo {
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .form-container {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .form-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .form-label {
-    font-weight: bold;
-  }
-  
-  .form-input {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .form-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-  } 
-
-  
-
-
-  
+.form-divider {
+  width: 50%;
+  height: 8px; /* Grosor de la línea horizontal */
+  background-color: #2b3035; /* Color de la línea */
+  border: thick;
+  margin: 20px auto; /* Espaciado superior e inferior con centrado horizontal */
+} 

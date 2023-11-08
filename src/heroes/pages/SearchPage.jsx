@@ -33,12 +33,11 @@ export const SearchPage = () => {
 
   return (
     <>
-      <h1 className='display-4 text-center mt-5' >Buscar</h1>
-      <hr className='w-50 mx-auto mb-3 text-primary' />
-      {/* <h1>Search</h1> 
-      <hr /> */}
+      <h1 className='form-title-importadas' >BUSCAR </h1>
+      <hr className='form-divider-importadas' />
+      
 
-      <div className="row">
+      <div className="row" id='row-search'> 
 
           <div className="col-md-5">
             {/* <h4>Busca las frutas registradas en el inventario </h4> */}

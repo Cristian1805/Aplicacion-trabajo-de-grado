@@ -5,7 +5,7 @@ import { useForm } from '../../hooks/useForm';
 import { useAuthStore } from '../../hooks/useAuthStore';
 import Swal from 'sweetalert2';
 
-// import './LoginPage.css'
+import './LoginPage.css' 
 
 
 
@@ -48,13 +48,13 @@ useEffect(() => {
               alt="Logo de la Empresa"
               className="img-fluid mb-4"
             />
-          <h3 className="display-6">Bienvenido al inventario</h3>
+          {/* <h3 className="display-6">Bienvenido al inventario</h3> */}
         </div>
         {/* Columna para el formulario de inicio de sesión */}
           <div className="col-md-6 col-sm-12">
             <div className="mt-3 text-center">
-              <h3 className="display-6">Formulario Inicio de sesión</h3>
-              <hr className="w-50 mx-auto mb-4" />
+              <h3 className="form-title">Formulario Inicio de sesión</h3>
+              <hr className="form-divider" /> 
             </div>
           <form onSubmit={ loginSubmit }>
             <div className="form-group">

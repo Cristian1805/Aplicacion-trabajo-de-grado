@@ -1,5 +1,5 @@
 
-import { Link, useNavigate} from 'react-router-dom';
+// import { Link, useNavigate} from 'react-router-dom';
 import React from 'react'
 import { useAuthStore } from '../../hooks/useAuthStore'
 import { useForm } from '../../hooks/useForm';
@@ -38,7 +38,7 @@ export const RegisterPage = () => {
                   alt="Logo de la Empresa"
                   className="img-fluid mb-4"
                 />
-              <h3 className="display-6">Bienvenido al inventario</h3>
+              {/* <h3 className="display-6">Bienvenido al inventario</h3> */}
             </div>
             {/* Columna para el formulario de inicio de sesión */}
               <div className="col-md-6 col-sm-12">

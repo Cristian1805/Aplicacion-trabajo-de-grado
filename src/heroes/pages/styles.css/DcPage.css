@@ -1,0 +1,24 @@
+/* styles.css (o el nombre de tu archivo de estilos) */
+.form-title-importadas {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 30px; /* Tamaño de fuente */
+    color: #0c0b0b;   /* Color del texto */
+    margin-block: 4% 2%;
+    writing-mode: horizontal-tb; 
+  }
+  
+.form-divider-importadas {
+  width: 50%;
+  height: 8px; /* Grosor de la línea horizontal */
+  background-color: #2b3035; /* Color de la línea */
+  border: thick;
+  margin: 20px auto; /* Espaciado superior e inferior con centrado horizontal */
+}
+  
+#row-search {
+  margin-block: 4% 2%;
+  writing-mode: horizontal-tb;
+  }
+
+  
