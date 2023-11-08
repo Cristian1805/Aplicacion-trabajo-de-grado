@@ -11,7 +11,7 @@ const registerFormFields = {
     registerEmail:     '',
     registerPassword:  '',
     registerPassword2: '', 
-  }
+  } 
 
 export const RegisterPage = () => { 
 
@@ -47,17 +47,20 @@ export const RegisterPage = () => {
                   <hr className="w-50 mx-auto mb-4" />
                 </div>
                 <form onSubmit={ registerSubmit }>
-                        <div className="form-group mb-2">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Nombre"
-                                name="registerName"
-                                value={ registerName }
-                                onChange={ onRegisterInputChange }
-                            />
+                  <div className="form-group">
+                    <label htmlFor="usuario">Nombre Completo:</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id='newusuario'
+                        placeholder="Nombre"
+                        name="registerName"
+                        value={ registerName }
+                        onChange={ onRegisterInputChange }
+                      />
                         </div>
-                        <div className="form-group mb-2">
+                        <div className="form-group mb-3">
+                          <label htmlFor="contrasena">Correo Electronico:</label>
                             <input
                                 type="email"
                                 className="form-control"
@@ -68,6 +71,7 @@ export const RegisterPage = () => {
                             />
                         </div>
                         <div className="form-group mb-2">
+                          <label htmlFor="contrasena">Contraseña:</label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -79,6 +83,7 @@ export const RegisterPage = () => {
                         </div>
 
                         <div className="form-group mb-2">
+                          <label htmlFor="rep-contrasena">Repetir Contraseña:</label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -89,11 +94,10 @@ export const RegisterPage = () => {
                             />
                         </div>
 
-                        <div className="d-grid gap-2">
-                            <input 
-                                type="submit" 
-                                className="btnSubmit" 
-                                value="Crear cuenta" />
+                        <div className="form-group">
+                        <button type="submit" className="btn btn-primary">
+                          Crear Cuenta
+                        </button> 
                         </div>
                     </form>
                 </div>

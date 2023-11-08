@@ -50,12 +50,12 @@ export const Navbar = () => {
                         BUSCAR
                     </NavLink>
 
-                    <NavLink
+                    {/* <NavLink
                         className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
                         to="/productos"
                     >
                         PRODUCTO
-                    </NavLink>
+                    </NavLink> */}  
 
                     <NavLink
                         className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
