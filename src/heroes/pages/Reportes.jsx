@@ -27,8 +27,8 @@ export const Reportes = () => {
   } 
   return (
     <div className="container mt-4">
-      <h1 className='display-4 text-center mt-5' > REPORTES FRUTY FENIX</h1>
-      <hr className='w-50 mx-auto mb-3' />
+      <h1 className='form-title-importadas' > REPORTES FRUTY FENIX</h1>
+      <hr className='form-divider-importadas' />
       <div className='table-resposive'>
       <table className="table table-striped table-bordered">
         <thead className="thead-dark">

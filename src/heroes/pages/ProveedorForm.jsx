@@ -141,8 +141,8 @@ export const ProveedorForm = () => {
 
   return (
     <div className="container">
-      <h1 className="display-4 text-center mt-5">REGISTRAR/EDITAR PROVEEDOR</h1>
-      <hr className="w-50 mx-auto mb-4" />
+      <h1 className="form-title-importadas">REGISTRAR/EDITAR PROVEEDOR</h1>
+      <hr className="form-divider-importadas"/>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="nombre" className="form-label">
@@ -195,7 +195,7 @@ export const ProveedorForm = () => {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control" 
             id="telefono"
             name="telefono"
             value={proveedor.telefono}
@@ -212,7 +212,8 @@ export const ProveedorForm = () => {
         </button>
       </form>
       {mensaje && <div className={`alert ${mensaje.includes('error') ? 'alert-danger' : 'alert-success'} mt-3`}>{mensaje}</div>}
-      <h2 className="display-4 text-center mt-5">LISTA DE PROVEEDORES</h2>
+      <h2 className="form-title-importadas">LISTA DE PROVEEDORES</h2>
+      <hr className='form-divider-importadas' />
       <table className="table table-striped mt-3">
         <thead>
           <tr>
