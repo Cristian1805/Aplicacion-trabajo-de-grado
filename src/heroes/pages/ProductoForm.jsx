@@ -5,7 +5,9 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getHeroById } from '../helpers';
 
-import './styles.css/InventarioSalida.css' 
+import './styles.css/InventarioSalida.css'
+import Swal from 'sweetalert2';
+
 
 
 // import dotenv from 'dotenv';
@@ -45,6 +47,13 @@ export const ProductoForm = () => {
       const response = await axios.post(url, body);
       console.log('Response:', response.data);
       console.log(`Entraron al inventario ${quantity} ${unit} de ${fruitName}`);
+
+      // Muestra la notificación exitosa
+      Swal.fire({
+        title: 'Entrada Registrada',
+        text: `Entraron al inventario ${quantity} ${unit} de ${fruitName}`,
+        icon: 'success',
+      });
     } catch (error) {
       console.error('Error:', error);
     }
