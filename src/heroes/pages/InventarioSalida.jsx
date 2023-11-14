@@ -101,7 +101,9 @@ export const InventarioSalida = () => {
                 <option value="198">198</option>
               </select>
             </div>
-            <div className="form-group">
+
+
+            {/* <div className="form-group">
               <label htmlFor="quantity">Cantidad:</label>
               <input
                 type="number"
@@ -111,6 +113,25 @@ export const InventarioSalida = () => {
                 required
                 className="form-control"
               />
+            </div> */}
+
+            <div className="form-group">
+            <label htmlFor="quantity">Cantidad:</label>
+            <input
+              type="number"
+              id="quantity"
+              value={quantity}
+              onChange={(e) => {
+                const inputValue = e.target.value;
+                // Validar que el valor sea un número positivo
+                if (/^[+]?\d*$/.test(inputValue)) {
+                  // Actualizar el estado solo si el valor es válido
+                  setQuantity(inputValue);
+                }
+              }} 
+              required 
+              className="form-control"
+            />
             </div>
             <div className="form-group">
               <label htmlFor="unit">Unidad:</label>
