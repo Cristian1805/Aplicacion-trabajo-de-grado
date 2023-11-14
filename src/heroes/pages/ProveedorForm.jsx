@@ -52,6 +52,7 @@ export const ProveedorForm = () => {
         Swal.fire('¡Proveedor creado!', 'El proveedor se ha creado exitosamente.', 'success');
         setUpdater(updater + 1);
         setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
+        
       } else {
         Swal.fire('Error', 'Hubo un error al crear el proveedor. Inténtalo de nuevo.', 'error');
       }
@@ -107,37 +108,38 @@ export const ProveedorForm = () => {
     setEditarProveedor(proveedor);
   };
 
-  const confirmarEliminacion = () => {
+  const confirmarEliminacion = async () => {
     if (proveedorAEliminar) {
-      fetch(`http://127.0.0.1:5174/proveedores/${proveedorAEliminar}`, {
-        method: "DELETE",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          if (json.success) {
-            setUpdater(updater + 1);
-            setMensaje('Proveedor eliminado exitosamente');
-          } else {
-            setMensaje('Hubo un error al eliminar el proveedor.');
+      try {
+        const response = await fetch(`http://127.0.0.1:5174/proveedores/${proveedorAEliminar}`, {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
           }
-        })
-        .catch((error) => {
-          console.error('Error al eliminar el proveedor:', error);
-          setMensaje('Hubo un error al eliminar el proveedor.');
         });
-
-      setProveedorAEliminar(null);
-      setConfirmarEliminar(false);
+  
+        const json = await response.json();
+  
+        if (json.success) {
+          setUpdater(updater + 1);
+          Swal.fire('¡Proveedor eliminado!', 'El proveedor se ha eliminado exitosamente.', 'success');
+        } else {
+          Swal.fire('Error', 'Hubo un error al eliminar el proveedor. Inténtalo de nuevo.', 'error');
+        }
+      } catch (error) {
+        console.error('Error al eliminar el proveedor:', error);
+        Swal.fire('Error', 'Hubo un error al eliminar el proveedor. Inténtalo de nuevo.', 'error');
+      } finally {
+        setProveedorAEliminar(null);
+        setConfirmarEliminar(false);
+      }
     }
   };
-
+  
   const handleEliminarProveedor = (id) => {
     setProveedorAEliminar(id);
     setConfirmarEliminar(true);
-  };
+  }; 
 
   return (
     <div className="container">

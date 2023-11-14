@@ -3,6 +3,7 @@
 import React from 'react'
 import { useAuthStore } from '../../hooks/useAuthStore'
 import { useForm } from '../../hooks/useForm';
+import axios from 'axios';
 
 
 
@@ -15,17 +16,35 @@ const registerFormFields = {
 
 export const RegisterPage = () => { 
 
-    const { startRegister } = useAuthStore
+    // const { startRegister } = useAuthStore 
     const { registerEmail, registerName, registerPassword, registerPassword2, onInputChange:onRegisterInputChange } = useForm( registerFormFields );
 
-    const registerSubmit = ( event ) => {
+    const registerSubmit = async ( event ) => {
         event.preventDefault();
         if ( registerPassword !== registerPassword2 ) {
             Swal.fire('Error en registro', 'Contraseñas no son iguales', 'error');
             return;
         }
       
-        startRegister({ name: registerName, email: registerEmail, password: registerPassword });
+        // startRegister({ name: registerName, email: registerEmail, password: registerPassword });
+        console.log(registerName, registerEmail, registerPassword)
+        
+        try {
+          const url = 'http://localhost:5174/auth/new'; 
+          
+          const body = {
+            name : registerName,
+            email : registerEmail,
+            password : registerPassword
+          }
+          
+          console.log(url);
+          const response = await axios.post(url, body);
+          console.log('Response:', response.data); 
+          
+        } catch (error) {
+          console.error('Error:', error);
+        }
       }
 
       return (

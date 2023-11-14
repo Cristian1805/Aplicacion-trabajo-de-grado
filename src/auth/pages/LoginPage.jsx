@@ -4,6 +4,8 @@ import { Link, useNavigate} from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuthStore } from '../../hooks/useAuthStore';
 import Swal from 'sweetalert2';
+import axios from 'axios';
+// import { useHistory } from 'react-router-dom';
 
 import './LoginPage.css' 
 
@@ -21,12 +23,34 @@ export const LoginPage = () => {
   const navigate = useNavigate();
   const { startLogin, errorMessage } = useAuthStore();       
   const { loginEmail, loginPassword, onInputChange:onLoginInputChange } = useForm( loginFormFields );
- 
+  
+  // const history = useHistory(); 
 
-  const loginSubmit = ( event ) => {
+  const loginSubmit = async ( event ) => {
     event.preventDefault();
+
+    try {
+      const url = 'http://localhost:5174/auth'; 
+      
+      const body = {
+        email : loginEmail,
+        password : loginPassword
+      }
+      
+      console.log(url);
+      const response = await axios.post(url, body);
+      // Almacenar datos en localStorage
+      localStorage.setItem('jwt', response.data.token);
+      history.push('/inicio'); 
+      console.log('Response:', response.data); 
+      
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+    
     // console.log('LoginPage', loginEmail, '-', loginPassword )
-    startLogin({ email: loginEmail, password: loginPassword });
+    // startLogin({ email: loginEmail, password: loginPassword });
 
 }
 
