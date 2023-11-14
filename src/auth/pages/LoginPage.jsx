@@ -21,6 +21,7 @@ const loginFormFields = {
 export const LoginPage = () => {
 
   const navigate = useNavigate();
+
   const { startLogin, errorMessage } = useAuthStore();       
   const { loginEmail, loginPassword, onInputChange:onLoginInputChange } = useForm( loginFormFields );
   
@@ -34,14 +35,14 @@ export const LoginPage = () => {
       
       const body = {
         email : loginEmail,
-        password : loginPassword
+        password : loginPassword 
       }
       
       console.log(url);
       const response = await axios.post(url, body);
       // Almacenar datos en localStorage
       localStorage.setItem('jwt', response.data.token);
-      history.push('/inicio'); 
+      navigate('/inicio',{ replace: true}); 
       console.log('Response:', response.data); 
       
     } catch (error) {

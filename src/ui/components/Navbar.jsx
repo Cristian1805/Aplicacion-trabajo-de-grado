@@ -1,13 +1,27 @@
+import { useEffect } from 'react';
 import './Navbar.css'
 
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
+    useEffect (()=>{
+        console.log('Hola', localStorage.getItem('jwt'))
+        if (!localStorage.getItem('jwt')){
+    
+            navigate('/login', {
+                replace: true 
+            });
+        }
+    }, [])  
     const navigate = useNavigate();
+    
+
 
     const onLogout = () => {
+        // Eliminar un elemento de localStorage
+        localStorage.removeItem('jwt');
         navigate('/login', {
-            replace: true
+            replace: true 
         });
     }
 
