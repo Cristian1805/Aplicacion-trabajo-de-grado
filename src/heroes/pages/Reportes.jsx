@@ -3,6 +3,7 @@ import axios from 'axios';
 import { getHeroById } from '../helpers';
 
 import jsPDF from 'jspdf';
+import 'jspdf-autotable'; 
 
 export const Reportes = () => {
   const [datos, setDatos] = useState([]);
@@ -38,6 +39,8 @@ export const Reportes = () => {
 
   const exportToPDF = () => {
     const pdf = new jsPDF();
+    const date = new Date();
+    pdf.text(date.toString(), 10, 10); 
     pdf.autoTable({ html: '#miTabla' });
     pdf.save('reporte.pdf');
   };
@@ -50,7 +53,7 @@ export const Reportes = () => {
       <button className="btn btn-success mb-2 ml-2" onClick={exportToPDF}>Exportar a PDF</button>
       <div className='table-responsive'>
         <table id="miTabla" className="table table-striped table-bordered">
-          <thead className="thead-dark">
+          <thead className="thead-dark"> 
             <tr>
               <th>ID</th>
               <th>Nombre</th>
