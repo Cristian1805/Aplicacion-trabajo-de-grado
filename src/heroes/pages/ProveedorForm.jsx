@@ -48,14 +48,11 @@ export const ProveedorForm = () => {
 
       const data = await response.json();
 
-      if (data.success) {
         Swal.fire('¡Proveedor creado!', 'El proveedor se ha creado exitosamente.', 'success');
         setUpdater(updater + 1);
         setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
-        
-      } else {
-        Swal.fire('Error', 'Hubo un error al crear el proveedor. Inténtalo de nuevo.', 'error');
-      }
+        console.log(data)
+
     } catch (error) {
       console.error('Error al enviar datos:', error);
       Swal.fire('Error', 'Hubo un error al crear el proveedor. Inténtalo de nuevo.', 'error');
@@ -72,14 +69,13 @@ export const ProveedorForm = () => {
 
       const data = await response.json();
 
-      if (data.success) {
         Swal.fire('¡Proveedor actualizado!', 'El proveedor se ha actualizado exitosamente.', 'success');
         setUpdater(updater + 1);
         setProveedor({ nombre: '', direccion: '', correo: '', telefono: '' });
         setEditarProveedor(null);
-      } else {
-        Swal.fire('Error', 'Hubo un error al actualizar el proveedor. Inténtalo de nuevo.', 'error');
-      }
+        console.log(data);
+
+      
     } catch (error) {
       console.error('Error al enviar datos:', error);
       Swal.fire('Error', 'Hubo un error al actualizar el proveedor. Inténtalo de nuevo.', 'error');
@@ -119,13 +115,12 @@ export const ProveedorForm = () => {
         });
   
         const json = await response.json();
+        console.log(json)
   
-        if (json.success) {
+    
           setUpdater(updater + 1);
           Swal.fire('¡Proveedor eliminado!', 'El proveedor se ha eliminado exitosamente.', 'success');
-        } else {
-          Swal.fire('Error', 'Hubo un error al eliminar el proveedor. Inténtalo de nuevo.', 'error');
-        }
+        
       } catch (error) {
         console.error('Error al eliminar el proveedor:', error);
         Swal.fire('Error', 'Hubo un error al eliminar el proveedor. Inténtalo de nuevo.', 'error');
@@ -138,6 +133,7 @@ export const ProveedorForm = () => {
   
   const handleEliminarProveedor = (id) => {
     setProveedorAEliminar(id);
+    console.log('elimando proveedor')
     setConfirmarEliminar(true);
   }; 
 
@@ -245,9 +241,14 @@ export const ProveedorForm = () => {
           ))}
         </tbody>
       </table>
-      {confirmarEliminar && (
-        <div className="modal">
-          <div className="modal-content">
+
+      {confirmarEliminar && 
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          position: 'absolute'
+        }}>
+          <div>
             <h2>¿Estás seguro de que deseas eliminar este proveedor?</h2>
             <button className="btn btn-danger" onClick={confirmarEliminacion}>
               Sí, eliminar
@@ -257,7 +258,7 @@ export const ProveedorForm = () => {
             </button>
           </div>
         </div>
-      )}
+      }
     </div>
   );
 };

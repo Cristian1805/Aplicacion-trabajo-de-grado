@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getHeroById } from '../helpers';
+
 import jsPDF from 'jspdf';
 
 export const Reportes = () => {
