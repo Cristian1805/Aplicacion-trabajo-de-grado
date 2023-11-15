@@ -8,7 +8,15 @@ export const Reportes = () => {
 
   useEffect(() => {
     const url = 'http://localhost:5174' + '/inventario';
-    axios.get(url)
+    const headers = {
+        
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json', // Asegúrate de configurar el tipo de contenido adecuado
+      },
+    }
+
+    axios.get(url, headers) 
       .then(response => {
         console.log(response.data);
         setDatos(response.data);

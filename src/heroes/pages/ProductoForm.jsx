@@ -42,9 +42,17 @@ export const ProductoForm = () => {
         cantidad: quantity,
         unidad: unit
       }
+
+      const headers = {
+        
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+          'Content-Type': 'application/json', // Asegúrate de configurar el tipo de contenido adecuado
+        },
+      }
       
       console.log(url);
-      const response = await axios.post(url, body);
+      const response = await axios.post(url, body, headers);
       console.log('Response:', response.data);
       console.log(`Entraron al inventario ${quantity} ${unit} de ${fruitName}`);
 
