@@ -30,6 +30,13 @@ export const LoginPage = () => {
   const loginSubmit = async ( event ) => {
     event.preventDefault();
 
+    // Verificar si ambos campos están vacíos
+    if (!loginEmail.trim() && !loginPassword.trim()) {
+      Swal.fire('Campos Vacíos', 'Por favor, ingrese su correo electrónico y contraseña.', 'warning');
+      return;
+    }
+
+
     try {
       const url = 'http://localhost:5174/auth'; 
       
@@ -40,20 +47,17 @@ export const LoginPage = () => {
       
       console.log(url);
       const response = await axios.post(url, body);
+      
       // Almacenar datos en localStorage
       localStorage.setItem('jwt', response.data.token);
       navigate('/inicio',{ replace: true}); 
       console.log('Response:', response.data); 
       
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error); 
     }
 
-    
-    // console.log('LoginPage', loginEmail, '-', loginPassword )
-    // startLogin({ email: loginEmail, password: loginPassword });
-
-}
+}; 
 
 useEffect(() => {
   if ( errorMessage !== undefined ) {
@@ -94,9 +98,10 @@ useEffect(() => {
                 onChange={onLoginInputChange}
               />
             </div>
+
             <div className="form-group mb-3">
               <label htmlFor="contrasena">Contraseña:</label>
-              <input
+              <input 
                 type="password"
                 className="form-control"
                 id="contrasena"
