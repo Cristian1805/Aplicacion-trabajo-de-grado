@@ -12,7 +12,7 @@ export const Reportes = () => {
   const [productsPerPage] = useState(7); // Número de productos por página 
 
   useEffect(() => {
-    const url = 'http://localhost:5174' + '/inventario';
+    const url = 'http://localhost:5174' + '/inventario'; 
     const headers = {
         
       headers: {
@@ -43,9 +43,22 @@ export const Reportes = () => {
   const exportToPDF = () => {
     const pdf = new jsPDF();
     const date = new Date();
-    pdf.text(date.toString(), 10, 10); 
-    pdf.autoTable({ html: '#miTabla' });
+    pdf.text(date.toString(), 10, 10);
+    
+    const tableData = currentProducts.map((producto) => {
+      const hero = getNombre(producto.id_producto);
+      return [producto.id_producto, hero.superhero, producto.calibre, producto.cantidad];
+    });
+  
+    pdf.autoTable({
+      head: [['ID', 'Nombre', 'Calibre', 'Cajas/Kgs']],
+      body: tableData,
+    });
+  
     pdf.save('reporte.pdf');
+
+    // pdf.autoTable({ html: '#miTabla' });
+    // pdf.save('reporte.pdf');
   };
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -58,12 +71,19 @@ export const Reportes = () => {
     <div className="container mt-4">
       <h1 className='form-title-importadas'> REPORTES FRUTY FENIX</h1>
       <hr className='form-divider-importadas' />
-      <button className="btn btn-primary mb-2" onClick={sortByDate}>
-        Ordenar por Fecha
-      </button>
-      <button className="btn btn-success mb-2 ml-2" onClick={exportToPDF}>
-        Exportar a PDF
-      </button>
+      
+      <div className="mb-2">
+        <button className="btn btn-primary" onClick={sortByDate}>
+          Ordenar por Fecha
+        </button>
+      </div>
+
+      <div className="mb-2 ml-2">
+        <button className="btn btn-success" onClick={exportToPDF}>
+          Exportar a PDF
+        </button>
+      </div>
+      
       <div className='table-responsive'>
         <Table striped bordered>
           <thead className="thead-dark">
