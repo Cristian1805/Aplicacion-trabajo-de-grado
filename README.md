@@ -12,3 +12,5 @@
 VITE_API_URL = http://localhost:5174/api
 
 ```
+## Autor :black_nib:
+Cristhian Camilo Lozano Gomez - Estudiante de ingeniería de sistemas UV.
