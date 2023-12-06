@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Swal from 'sweetalert2';
 import './Navbar.css'
 
 import { Link, NavLink, useNavigate } from 'react-router-dom';
@@ -14,21 +15,29 @@ export const Navbar = () => {
         }
     }, [])  
     const navigate = useNavigate();
-    
-
 
     const onLogout = () => {
         // Eliminar un elemento de localStorage
         localStorage.removeItem('jwt');
-        navigate('/login', {
-            replace: true 
+        
+        // Muestra la notificación de SweetAlert
+        Swal.fire({
+            title: 'Logout exitoso',
+            text: 'Te has desconectado correctamente.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then(() => {
+            // Redirige a la página de inicio de sesión
+            navigate('/login', {
+                replace: true,
+            });
         });
-    }
+    };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1">
             <Link className="navbar-brand" to="/">
-                <img src="/assets/frutas/casa.png" alt="Logo" width="30" height="30" /> Inicio
+                <img src="/assets/iconos/avatar.png" alt="Logo" width="30" height="30"/> Inicio
             </Link>
         
 
@@ -45,8 +54,8 @@ export const Navbar = () => {
                 <div className="navbar-nav">
                     <NavLink
                         className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/tropicales" 
-                    >
+                        to="/tropicales">
+                            {/* <img src="/assets/iconos/convenio.png" alt="Logo" width="20" height="20"/> */} 
                         TROPICALES
                     </NavLink>
 
@@ -95,13 +104,13 @@ export const Navbar = () => {
 
                     <button
                         className="btn btn-outline-danger"
-                        onClick={onLogout}
+                        onClick={onLogout} 
                     >
                         Logout
                     </button> 
                 </ul>
             </div>
-        </nav>
+        </nav> 
     )
 }
 
