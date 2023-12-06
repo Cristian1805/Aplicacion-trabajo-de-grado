@@ -52,47 +52,86 @@ export const Navbar = () => {
 
             <div className="collapse navbar-collapse" id="navbarNav">
                 <div className="navbar-nav">
-                    <NavLink
-                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/tropicales">
-                            {/* <img src="/assets/iconos/convenio.png" alt="Logo" width="20" height="20"/> */} 
-                        TROPICALES
+                <NavLink
+                className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+                to="/tropicales"
+                >
+                    <div className="d-flex align-items-center">
+                    <img
+                        src="/assets/iconos/convenio.png"
+                        alt="Logo"
+                        width="20"
+                        height="20"
+                        className="me-2" // Espaciado a la derecha del icono
+                    />
+                    TROPICALES
+                </div>
+                </NavLink>
+
+                <NavLink
+                className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+                to="/importadas" 
+                >
+                    <div className='d-flex align-items-center'>
+                    <img
+                        src="/assets/iconos/caja-de-devolucion.png"
+                        alt="Logo"
+                        width="20"
+                        height="20"
+                        className="me-2" // Espaciado a la derecha del icono
+                    />
+                    IMPORTADAS
+                    </div>
+                </NavLink>
+
+                <NavLink
+                className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+                to="/search"
+                >
+                    <div className='d-flex align-items-center'>
+                    <img
+                        src="/assets/iconos/lupa.png"
+                        alt="Logo"
+                        width="20"
+                        height="20"
+                        className="me-2" // Espaciado a la derecha del icono
+                    />
+                    BUSCAR
+                    </div>
                     </NavLink>
 
-                    <NavLink
-                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/importadas" 
-                    >
-                        IMPORTADAS
-                    </NavLink>
+        
+                <NavLink
+                className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+                to="/proveedores"
+                >
+                    <div className='d-flex align-items-center'>
+                    <img
+                        src="/assets/iconos/grafico-de-barras.png"
+                        alt="Logo"
+                        width="20"
+                        height="20"
+                        className="me-2" // Espaciado a la derecha del icono
+                    />
+                    PROVEEDORES
+                    </div>
+                </NavLink>
 
-                    <NavLink
-                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/search"
-                    >
-                        BUSCAR
-                    </NavLink>
-
-                    {/* <NavLink
-                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/productos"
-                    >
-                        PRODUCTO
-                    </NavLink> */}  
-
-                    <NavLink
-                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/proveedores"
-                    >
-                        PROVEEDORES
-                    </NavLink>
-
-                    <NavLink
-                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/reportes"
-                    >
+                <NavLink
+                className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+                to="/reportes"
+                >
+                    <div className='d-flex align-items-center'>
+                    <img
+                        src="/assets/iconos/devoluciones-icono.png"
+                        alt="Logo"
+                        width="20"
+                        height="20"
+                        className="me-2" // Espaciado a la derecha del icono
+                    />
                         REPORTES
-                    </NavLink>
+                    </div>
+                </NavLink>
                 </div>
             </div>
 
