@@ -1,20 +1,23 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 
+
+import './styles.css/Inicio.css' 
+
 const Inicio = () => {
   return (
     <div>
-      <Carousel>
+      <Carousel className="carousel-container">
         {/* Primera diapositiva */}
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/assets/frutas/fruta1.jpg"
+            src="/assets/carrusel/4img.jpg"
             alt="Primera fruta"
           />
-          <Carousel.Caption>
+          <Carousel.Caption className="carousel-caption">
             <h3>Bienvenido al Inventario Fruty Fenix</h3>
-            {/* <p>Descubre la frescura de nuestras frutas.</p> */}
+            <p>Descubre la frescura de nuestras frutas.</p>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -22,10 +25,10 @@ const Inicio = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/assets/frutas/fruta2.jpg"
+            src="/assets/carrusel/2img.jpg"
             alt="Segunda fruta"
           />
-          <Carousel.Caption>
+          <Carousel.Caption className="carousel-caption">
             <h3>Bienvenido al Inventario Fruty Fenix</h3>
             <p>Variedad y calidad en cada producto.</p>
           </Carousel.Caption>
@@ -35,10 +38,10 @@ const Inicio = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/assets/frutas/fruta3.jpg"
+            src="/assets/carrusel/3img.jpg"
             alt="Tercera fruta"
           />
-          <Carousel.Caption>
+          <Carousel.Caption className="carousel-caption">
             <h3>Bienvenido al Inventario Fruty Fenix</h3>
             <p>Explora nuestras opciones frescas y deliciosas.</p>
           </Carousel.Caption>

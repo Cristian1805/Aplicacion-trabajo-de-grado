@@ -1,0 +1,14 @@
+/* Puedes agregar estas reglas en tu archivo de estilos o en línea dentro del componente */
+.carousel-container {
+    max-width: 450px; /* Ajusta el ancho máximo según tus preferencias */
+    margin: 0 auto; /* Centra el carrusel horizontalmente */
+  }
+  
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad del texto */
+    padding: 30px;
+    border-radius: 5px; /* Bordes redondeados para la leyenda */
+    text-align: center;
+    color: white;
+  }
+  
