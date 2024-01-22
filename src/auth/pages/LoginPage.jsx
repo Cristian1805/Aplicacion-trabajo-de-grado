@@ -65,68 +65,64 @@ useEffect(() => {
   }
 }, [errorMessage]) 
 
+return (
+  <div className="container h-100">
+    <div className="row h-100 justify-content-center align-items-center">
+      <div className="col-md-6 col-sm-12">
+        <div className="mt-3 text-center">
+          {/* Logo de la empresa */}
+          <img
+            src="/assets/logo.jpg"
+            alt="Logo de la Empresa"
+            className="img-fluid mb-4"
+          />
+          <h3 className="form-title mb-4">Formulario Inicio de Sesión</h3>
+          <div className="card p-4">
+            <form onSubmit={loginSubmit}>
+              <div className="form-group">
+                <label htmlFor="usuario">Usuario:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="usuario"
+                  placeholder="Correo Electrónico"
+                  name="loginEmail"
+                  value={loginEmail}
+                  onChange={onLoginInputChange}
+                />
+              </div>
 
+              <div className="form-group mb-4">
+                <label htmlFor="contrasena">Contraseña:</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="contrasena"
+                  placeholder="Contraseña"
+                  name="loginPassword"
+                  value={loginPassword}
+                  onChange={onLoginInputChange}
+                />
+              </div>
 
-  return (
-    <div className="container h-100">
-      <div className="row h-100 justify-content-center align-items-center">
-        {/* Columna para el logo de la empresa */}
-          <div className="col-md-6 col-sm-12 text-center">
-            <img
-              src="/assets/logo.jpg"
-              alt="Logo de la Empresa"
-              className="img-fluid mb-4"
-            />
-          {/* <h3 className="display-6">Bienvenido al inventario</h3> */}
-        </div>
-        {/* Columna para el formulario de inicio de sesión */}
-          <div className="col-md-6 col-sm-12">
-            <div className="mt-3 text-center">
-              <h3 className="form-title">Formulario Inicio de sesión</h3>
-              <hr className="form-divider" /> 
-            </div>
-          <form onSubmit={ loginSubmit }>
-            <div className="form-group">
-              <label htmlFor="usuario">Usuario:</label>
-              <input
-                type="text"
-                className="form-control"
-                id="usuario"
-                placeholder="Correo Electronico"
-                name="loginEmail"
-                value= {loginEmail}
-                onChange={onLoginInputChange}
-              />
-            </div>
+              <div className="form-group">
+                <button type="submit" className="btn btn-primary btn-block">
+                  Iniciar Sesión
+                </button>
+              </div>
 
-            <div className="form-group mb-3">
-              <label htmlFor="contrasena">Contraseña:</label>
-              <input 
-                type="password"
-                className="form-control"
-                id="contrasena"
-                placeholder="Contraseña"
-                name="loginPassword"
-                value= {loginPassword}
-                onChange={onLoginInputChange} 
-              />
-            </div>
-
-             
-            <div className="form-group">
-            <button type="submit" className="btn btn-primary">
-              Iniciar Sesión
-            </button>
+              <div className="form-group">
+                <Link to="/register" className="btn btn-secondary btn-block">
+                  Registro Usuario
+                </Link>
+              </div>
+            </form>
           </div>
-
-          <div className="form-group">
-            <Link to="/register" className="btn btn-secondary">
-            Registo Usuario 
-            </Link>
-          </div>
-          </form>
         </div>
       </div>
-    </div> 
-  );
+    </div>
+  </div>
+);
+
+
 };
