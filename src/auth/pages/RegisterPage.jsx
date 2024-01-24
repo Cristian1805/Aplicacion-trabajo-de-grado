@@ -54,7 +54,7 @@ export const RegisterPage = () => {
             {/* Columna para el logo de la empresa */}
               <div className="col-md-6 col-sm-12 text-center">
                 <img
-                  src="/assets/logo.jpg"
+                  src="/src/assets/logo.jpg"
                   alt="Logo de la Empresa"
                   className="img-fluid mb-4"
                 />

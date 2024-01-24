@@ -73,7 +73,7 @@ return (
         <div className="mt-3 text-center">
           {/* Logo de la empresa */}
           <img
-            src="/assets/logo.jpg"
+            src="/src/assets/logo.jpg"
             alt="Logo de la Empresa"
             className="img-fluid mb-4"
           />
