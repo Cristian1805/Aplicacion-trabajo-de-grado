@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 
 import { HeroesRoutes } from '../heroes';
 import { LoginPage } from '../auth';
-import { getEnvVariables } from '../heroes/helpers';
+//import { getEnvVariables } from '../heroes/helpers';
 
 import { store } from '../store/store';
 import { RegisterPage } from '../auth/pages/RegisterPage'; 
@@ -14,7 +14,7 @@ export const AppRouter = () => {
 
   const authStatus = 'checking'; //'authenticated'; 'not authenticated';
   
-  console.log(getEnvVariables()); 
+  //console.log(getEnvVariables()); 
 
 
   return (
