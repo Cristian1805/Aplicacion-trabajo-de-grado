@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 // dotenv.config(); 
 
 import axios from 'axios';
+import { url_prefi } from '../../config/api';
 // import { getEnvVariables } from '../helpers/index'
 
 export const InventarioSalida = () => {
@@ -37,7 +38,7 @@ export const InventarioSalida = () => {
     // Logica del inventario de frutas  
     
     try {
-      const url = 'http://localhost:5174' + '/inventario'; 
+      const url = url_prefi + '/inventario'; 
       
       const body = {
         id_producto : id,

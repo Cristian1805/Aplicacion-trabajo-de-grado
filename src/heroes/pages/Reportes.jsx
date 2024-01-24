@@ -5,6 +5,7 @@ import { Table, Button, Pagination } from 'react-bootstrap'; // Importa los comp
 
 import jsPDF from 'jspdf';
 import 'jspdf-autotable'; 
+import { url_prefi } from '../../config/api';
 
 export const Reportes = () => {
   const [datos, setDatos] = useState([]);
@@ -12,7 +13,7 @@ export const Reportes = () => {
   const [productsPerPage] = useState(7); // Número de productos por página 
 
   useEffect(() => {
-    const url = 'http://localhost:5174' + '/inventario'; 
+    const url = url_prefi + '/inventario'; 
     const headers = {
         
       headers: {

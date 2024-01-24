@@ -8,6 +8,7 @@ import axios from 'axios';
 // import { useHistory } from 'react-router-dom';
 
 import './LoginPage.css' 
+import { url_prefi } from '../../config/api';
 
 
 
@@ -38,7 +39,7 @@ export const LoginPage = () => {
 
 
     try {
-      const url = 'http://localhost:5174/auth'; 
+      const url = url_prefi + '/auth'; 
       
       const body = {
         email : loginEmail,

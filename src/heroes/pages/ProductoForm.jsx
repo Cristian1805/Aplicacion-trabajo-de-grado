@@ -1,5 +1,6 @@
 // Importa dotenv
 
+import { url_prefi } from '../../config/api'; 
 import { useMemo } from 'react';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -27,14 +28,15 @@ export const ProductoForm = () => {
   const [quantity, setQuantity] = useState('');
   const [unit, setUnit] = useState('Cajas');
 
+
   const handleFormSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
 
 
     // Logica del inventario de frutas  
     
     try {
-      const url = 'http://localhost:5174' + '/inventario'; 
+      const url = url_prefi + '/inventario'; 
       
       const body = {
         id_producto : id,

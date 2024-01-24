@@ -4,6 +4,7 @@ import React from 'react'
 import { useAuthStore } from '../../hooks/useAuthStore'
 import { useForm } from '../../hooks/useForm';
 import axios from 'axios'; 
+import { url_prefi } from '../../config/api';
 
 
 
@@ -30,7 +31,7 @@ export const RegisterPage = () => {
         console.log(registerName, registerEmail, registerPassword)
         
         try {
-          const url = 'http://localhost:5174/auth/new'; 
+          const url = url_prefi + '/auth/new'; 
           
           const body = {
             name : registerName,

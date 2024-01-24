@@ -1,0 +1,1 @@
+export const url_prefi = 'http://localhost:5174';

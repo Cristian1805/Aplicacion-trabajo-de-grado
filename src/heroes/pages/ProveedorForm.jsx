@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { url_prefi } from '../../config/api'; 
 
 export const ProveedorForm = () => {
   const [proveedor, setProveedor] = useState({
@@ -18,7 +19,7 @@ export const ProveedorForm = () => {
   const [proveedorAEliminar, setProveedorAEliminar] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5174/proveedores", {
+    fetch(url_prefi + "/proveedores", {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8"
@@ -40,7 +41,7 @@ export const ProveedorForm = () => {
 
   const crearProveedor = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5174/proveedores", {
+      const response = await fetch(url_prefi + "/proveedores", {
         method: "POST",
         body: JSON.stringify(proveedor),
         headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -61,7 +62,7 @@ export const ProveedorForm = () => {
 
   const actualizarProveedor = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5174/proveedores/" + editarProveedor._id, {
+      const response = await fetch(url_prefi + "/proveedores/" + editarProveedor._id, {
         method: "PUT",
         body: JSON.stringify(proveedor),
         headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -107,7 +108,7 @@ export const ProveedorForm = () => {
   const confirmarEliminacion = async () => {
     if (proveedorAEliminar) {
       try {
-        const response = await fetch(`http://127.0.0.1:5174/proveedores/${proveedorAEliminar}`, {
+        const response = await fetch(url_prefi + `/proveedores/${proveedorAEliminar}`, {
           method: "DELETE",
           headers: {
             "Content-type": "application/json; charset=UTF-8"
