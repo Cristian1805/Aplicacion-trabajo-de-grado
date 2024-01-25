@@ -1,25 +1,26 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import './Navbar.css'
 
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
-    useEffect (()=>{
-        console.log('Hola', localStorage.getItem('jwt'))
-        if (!localStorage.getItem('jwt')){
+    const navigate = useNavigate();  // Declaración Navigate
+    const [isNavCollapsed, setIsNavCollapsed] = useState(true);
     
+    useEffect(() => {
+        console.log('Hola', localStorage.getItem('jwt')) 
+        if (!localStorage.getItem('jwt')) {
             navigate('/login', {
                 replace: true 
             });
         }
-    }, [])  
-    const navigate = useNavigate();
+    }, [navigate]);  // Añadir navigate como dependencia
 
     const onLogout = () => {
-        // Eliminar un elemento de localStorage
+        // Eliminar un elemento de localStorage 
         localStorage.removeItem('jwt');
-        
+
         // Muestra la notificación de SweetAlert
         Swal.fire({
             title: 'Logout exitoso',
@@ -37,20 +38,20 @@ export const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1">
             <Link className="navbar-brand" to="/">
-                <img src="/assets/iconos/avatar.png" alt="Logo" width="30" height="30"/> Inicio
+                <img src="/src/assets/iconos/avatar.png" alt="Logo" width="25" height="25"/> Inicio
             </Link>
         
 
             <button
                 className="navbar-toggler"
                 type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
+                onClick={() => setIsNavCollapsed(!isNavCollapsed)}   
             >
-                <span className="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon"></span> 
             </button>
 
-            <div className="collapse navbar-collapse" id="navbarNav">
+            {/* <div className="collapse navbar-collapse" id="navbarNav"> */}
+            <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarNav">
                 <div className="navbar-nav">
                 <NavLink
                 className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
@@ -58,7 +59,7 @@ export const Navbar = () => {
                 >
                     <div className="d-flex align-items-center">
                     <img
-                        src="/assets/iconos/convenio.png"
+                        src="/src/assets/iconos/convenio.png"
                         alt="Logo"
                         width="20"
                         height="20"
@@ -74,7 +75,7 @@ export const Navbar = () => {
                 >
                     <div className='d-flex align-items-center'>
                     <img
-                        src="/assets/iconos/caja-de-devolucion.png"
+                        src="/src/assets/iconos/caja-de-devolucion.png"
                         alt="Logo"
                         width="20"
                         height="20"
@@ -90,7 +91,7 @@ export const Navbar = () => {
                 >
                     <div className='d-flex align-items-center'>
                     <img
-                        src="/assets/iconos/lupa.png"
+                        src="/src/assets/iconos/lupa.png"
                         alt="Logo"
                         width="20"
                         height="20"
@@ -107,7 +108,7 @@ export const Navbar = () => {
                 >
                     <div className='d-flex align-items-center'>
                     <img
-                        src="/assets/iconos/grafico-de-barras.png"
+                        src="/src/assets/iconos/grafico-de-barras.png"
                         alt="Logo"
                         width="20"
                         height="20"
@@ -123,7 +124,7 @@ export const Navbar = () => {
                 >
                     <div className='d-flex align-items-center'>
                     <img
-                        src="/assets/iconos/devoluciones-icono.png"
+                        src="/src/assets/iconos/devoluciones-icono.png"
                         alt="Logo"
                         width="20"
                         height="20"
@@ -151,5 +152,5 @@ export const Navbar = () => {
             </div>
         </nav> 
     )
-}
+} 
 

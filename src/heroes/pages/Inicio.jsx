@@ -38,7 +38,7 @@ const Inicio = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/assets/carrusel/3img.jpg"
+            src="/src/assets/carrusel/3img.jpg"
             alt="Tercera fruta"
           />
           <Carousel.Caption className="carousel-caption">
