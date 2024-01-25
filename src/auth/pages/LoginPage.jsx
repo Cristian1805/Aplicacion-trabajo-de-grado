@@ -74,7 +74,7 @@ return (
           {/* Logo de la empresa */}
           <img
             // src={`${url_prefi}/assets/logo.jpg`}
-            src="/src/public/static/logo.jpg"  
+            src="/src/public/1-logo.jpg"  
             alt="Logo de la Empresa"
             className="img-fluid mb-4"
           />
