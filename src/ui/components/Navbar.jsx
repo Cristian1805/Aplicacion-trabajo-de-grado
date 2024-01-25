@@ -36,6 +36,7 @@ export const Navbar = () => {
     };
 
     return (
+        <div className='container-fluid'>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1">
             <Link className="navbar-brand" to="/">
                 <img src="/src/assets/iconos/avatar.png" alt="Logo" width="25" height="25"/> Inicio
@@ -60,7 +61,7 @@ export const Navbar = () => {
                     <div className="d-flex align-items-center">
                     <img
                         src="/src/assets/iconos/convenio.png"
-                        alt="Logo"
+                        alt="Logo" 
                         width="20"
                         height="20"
                         className="me-2" // Espaciado a la derecha del icono
@@ -148,9 +149,10 @@ export const Navbar = () => {
                     >
                         Logout
                     </button> 
-                </ul>
+                </ul> 
             </div>
-        </nav> 
+        </nav>
+        </div> 
     )
 } 
 
