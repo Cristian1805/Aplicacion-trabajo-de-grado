@@ -39,7 +39,7 @@ export const Navbar = () => {
         <div className='container-fluid'>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1">
             <Link className="navbar-brand" to="/">
-                <img src="/src/assets/iconos/avatar.png" alt="Logo" width="25" height="25"/> Inicio
+                <img src="/public/iconos/avatar.png" alt="Logo" width="25" height="25"/> Inicio
             </Link>
         
 
@@ -60,7 +60,7 @@ export const Navbar = () => {
                 >
                     <div className="d-flex align-items-center">
                     <img
-                        src="/src/assets/iconos/convenio.png"
+                        src="/public/iconos/convenio.png"
                         alt="Logo" 
                         width="20"
                         height="20"
@@ -76,7 +76,7 @@ export const Navbar = () => {
                 >
                     <div className='d-flex align-items-center'>
                     <img
-                        src="/src/assets/iconos/caja-de-devolucion.png"
+                        src="/public/iconos/caja-de-devolucion.png"
                         alt="Logo"
                         width="20"
                         height="20"
@@ -92,7 +92,7 @@ export const Navbar = () => {
                 >
                     <div className='d-flex align-items-center'>
                     <img
-                        src="/src/assets/iconos/lupa.png"
+                        src="/public/iconos/lupa.png"
                         alt="Logo"
                         width="20"
                         height="20"
@@ -109,7 +109,7 @@ export const Navbar = () => {
                 >
                     <div className='d-flex align-items-center'>
                     <img
-                        src="/src/assets/iconos/grafico-de-barras.png"
+                        src="/public/iconos/grafico-de-barras.png"
                         alt="Logo"
                         width="20"
                         height="20"
@@ -125,7 +125,7 @@ export const Navbar = () => {
                 >
                     <div className='d-flex align-items-center'>
                     <img
-                        src="/src/assets/iconos/devoluciones-icono.png"
+                        src="/public/iconos/devoluciones-icono.png"
                         alt="Logo"
                         width="20"
                         height="20"
