@@ -56,10 +56,7 @@ export const Reportes = () => {
       body: tableData,
     });
   
-    pdf.save('reporte.pdf');
-
-    // pdf.autoTable({ html: '#miTabla' });
-    // pdf.save('reporte.pdf');
+    pdf.save('reporte.pdf'); 
   };
 
   const indexOfLastProduct = currentPage * productsPerPage;

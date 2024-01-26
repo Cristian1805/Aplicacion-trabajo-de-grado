@@ -114,7 +114,14 @@ export const ProductoForm = () => {
                 type="number"
                 id="quantity"
                 value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                onChange={(e) => {
+                const inputValue = e.target.value;
+                // Validar que el valor sea un número positivo
+                if (/^[+]?\d*$/.test(inputValue)) {
+                  // Actualizar el estado solo si el valor es válido
+                  setQuantity(inputValue);
+                } 
+              }} 
                 required
                 className="form-control"
               />

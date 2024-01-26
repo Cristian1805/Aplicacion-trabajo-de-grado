@@ -136,7 +136,7 @@ export const InventarioSalida = () => {
                 if (/^[+]?\d*$/.test(inputValue)) {
                   // Actualizar el estado solo si el valor es válido
                   setQuantity(inputValue);
-                }
+                } 
               }} 
               required 
               className="form-control"
