@@ -26,11 +26,7 @@ export const InventarioSalida = () => {
   const [unit, setUnit] = useState('Cajas'); 
   const [calibre, setCalibre] = useState('100');
 
-  // const  VITE_API_URL  = process.env.REACT_APP_VITE_API_URL;
   
-  // console.log(hero) 
-  
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -54,7 +50,19 @@ export const InventarioSalida = () => {
           'Content-Type': 'application/json', // Asegúrate de configurar el tipo de contenido adecuado
         },
       }
-      
+
+      // // Verificar que la cantidad a retirar no sea mayor a la cantidad actual en el inventario
+      // const inventarioActual = await axios.get(url, headers); 
+      // const cantidadActual = inventarioActual.data[0]?.cantidad || 0; // Obtener la cantidad actual o 0 si no hay datos
+      // if (parseInt(quantity, 10) > cantidadActual) {
+      //   Swal.fire({
+      //     title: 'Error',
+      //     text: 'La cantidad a retirar es mayor que la cantidad actual en el inventario',
+      //     icon: 'error',
+      //   });
+      //   return; // Salir de la función si la cantidad es mayor
+      // }
+
       console.log(url);
       const response = await axios.post(url, body, headers); 
       console.log('Response:', response.data);
@@ -68,6 +76,8 @@ export const InventarioSalida = () => {
     } catch (error) {
       console.error('Error:', error);
     }
+
+  
     console.log(`Se retiraron ${quantity} ${unit} de ${fruitName}`);
     // También puedes enviar esta información al servidor o almacenarla en una base de datos
     // Luego, puedes actualizar el estado y borrar los campos del formulario
@@ -110,19 +120,6 @@ export const InventarioSalida = () => {
                 <option value="198">198</option>
               </select>
             </div>
-
-
-            {/* <div className="form-group">
-              <label htmlFor="quantity">Cantidad:</label>
-              <input
-                type="number"
-                id="quantity"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-                required
-                className="form-control"
-              />
-            </div> */}
 
             <div className="form-group">
             <label htmlFor="quantity">Cantidad:</label>
