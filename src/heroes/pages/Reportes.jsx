@@ -7,6 +7,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable'; 
 import { url_prefi } from '../../config/api';
 
+// Configurando release para los reportes
 export const Reportes = () => {
   const [datos, setDatos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
